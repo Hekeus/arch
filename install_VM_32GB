@@ -1,4 +1,4 @@
-#!/bin/bash
+h#!/bin/bash
 #Virtual box 32GB Hard 1GB RAM
 
 #удаляем все разделы
@@ -35,6 +35,7 @@ pacman -Syy
 #установка
 pacstrap -K /mnt base linux linux-firmwcatare networkmanager grub efibootmgr
 
+echo 'end pacstrap'
 sleep 5
 
 #----------------------------------
