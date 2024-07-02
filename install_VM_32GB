@@ -33,7 +33,7 @@ pacman -Syy
 
 #----------------------------------
 #установка
-pacstrap -K /mnt base linux linux-firmware networkmanager grub efibootmgr
+pacstrap -K /mnt base linux linux-firmwcatare networkmanager grub efibootmgr --noconfirm
 
 #----------------------------------
 #сохраняем параметры подключения разделов
