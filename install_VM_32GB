@@ -35,18 +35,3 @@ pacman -Syy
 #установка
 pacstrap -K /mnt base linux linux-firmware networkmanager grub efibootmgr
 
-#----------------------------------
-#сохраняем параметры подключения разделов
-genfstab -U /mnt >> /mnt/etc/fstab
-
-#----------------------------------
-
-arch-chroot /mnt
-
-
-#----------------------------------
-#установка загрузчика
-
-grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
-
-grub-mkconfig -o /boot/grub/grub.cfg
