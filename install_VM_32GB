@@ -34,3 +34,7 @@ pacman -Syy
 #----------------------------------
 #установка
 pacstrap -K /mnt base linux linux-firmware networkmanager grub efibootmgr
+
+#----------------------------------
+#сохраняем параметры подключения разделов
+genfstab -U /mnt >> /mnt/etc/fstab
