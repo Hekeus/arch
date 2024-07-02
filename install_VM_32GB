@@ -1,1 +1,11 @@
-echo "Hello"
+#!/bin/bash
+echo 'Virtual box 32GB Hard 1GB RAM'
+
+#удаляем все разделы
+parted -s /dev/sda mklabel msdos
+
+#разметка диска
+echo 'label: gpt' | sfdisk /dev/sda
+echo 'size=1G, type=U' | sfdisk -a /dev/sda
+echo 'size=2G, type=S' | sfdisk -a /dev/sda
+echo 'size=29G, type=L' | sfdisk -a /dev/sda
