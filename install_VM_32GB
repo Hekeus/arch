@@ -1,9 +1,6 @@
 #!/bin/bash
 #Virtual box 32GB Hard 1GB RAM
 
-#отмонтируем если что-то было примонтировано
-umount --all
-
 #удаляем все разделы
 parted -s /dev/sda mklabel msdos
 
