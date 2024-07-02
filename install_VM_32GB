@@ -31,4 +31,6 @@ mount /dev/sda1 /mnt/efi
 cp mirrorlist /etc/pacman.d
 pacman -Syy
 
-
+#----------------------------------
+#установка
+pacstrap -K /mnt base linux linux-firmware networkmanager grub efibootmgr
