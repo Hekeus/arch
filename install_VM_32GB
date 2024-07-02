@@ -1,11 +1,12 @@
 #!/bin/bash
-echo 'Virtual box 32GB Hard 1GB RAM'
+#Virtual box 32GB Hard 1GB RAM
 
 #удаляем все разделы
 parted -s /dev/sda mklabel msdos
 
 #----------------------------------
 #подготовка диска
+
 #разметка диска в gpt
 echo 'label: gpt' | sfdisk /dev/sda
 
@@ -24,4 +25,40 @@ mount /dev/sda3 /mnt
 swapon /dev/sda2
 mkdir /mnt/efi
 mount /dev/sda1 /mnt/efi
+
 #----------------------------------
+#подключение быстрого зеркала
+cp mirrorlist /etc/pacman.d
+pacman -Syy
+
+#----------------------------------
+#установка
+pacstrap -K /mnt base linux linux-firmware networkmanager grub efibootmgr
+
+#----------------------------------
+#сохраняем параметры подключения разделов
+genfstab -U /mnt >> /mnt/etc/fstab
+
+#----------------------------------
+
+arch-chroot /mnt
+
+#----------------------------------
+#установка загрузчика
+
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+#----------------------------------
+#включение службы сети
+systemctl enable NetworkManager
+systemctl start NetworkManager
+
+#----------------------------------
+#установка пароля у root
+echo root | passwd --stdin
+
+#----------------------------------
+exit
+reboot
