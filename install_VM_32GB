@@ -33,16 +33,19 @@ pacman -Syy
 
 #----------------------------------
 #установка
-pacstrap -K /mnt base linux linux-firmwcatare networkmanager grub efibootmgr --noconfirm
+pacstrap -K /mnt base linux linux-firmwcatare networkmanager grub efibootmgr
+
+sleep 5
 
 #----------------------------------
 #сохраняем параметры подключения разделов
 genfstab -U /mnt >> /mnt/etc/fstab
 
+sleep 5
 #----------------------------------
 
 arch-chroot /mnt
-
+sleep 5
 #----------------------------------
 #установка загрузчика
 
@@ -50,11 +53,13 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
+sleep 5
 #----------------------------------
 #включение службы сети
 systemctl enable NetworkManager
 systemctl start NetworkManager
 
+sleep 5
 #----------------------------------
 #установка пароля у root
 echo root | passwd --stdin
