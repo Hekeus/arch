@@ -10,8 +10,14 @@ BASEDIR=$(dirname $(realpath "$0"))
 #подключение быстрого зеркала
 cp $BASEDIR/mirrorlist /etc/pacman.d
 pacman -Syy
-#----------------------------------
 
+#----------------------------------
+#отмонтируем все что подключали
+swapoff -a
+umount /mnt/efi
+umount /mnt
+
+#----------------------------------
 #удаляем все разделы
 parted -s /dev/sda mklabel msdos
 
