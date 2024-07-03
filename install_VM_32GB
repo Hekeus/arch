@@ -4,9 +4,11 @@
 set -x
 set -eo pipefail
 
+BASEDIR=$(dirname $(realpath "$0"))
+
 #----------------------------------
 #подключение быстрого зеркала
-cp $PWD/mirrorlist /etc/pacman.d
+cp $BASEDIR/mirrorlist /etc/pacman.d
 pacman -Syy
 #----------------------------------
 
