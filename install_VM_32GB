@@ -13,9 +13,9 @@ pacman -Syy
 
 #----------------------------------
 #отмонтируем все что подключали
-swapoff -a
-umount /mnt/efi
-umount /mnt
+swapoff -a 2> /dev/null
+umount /mnt/efi 2> /dev/null
+umount /mnt 2> /dev/null
 
 #----------------------------------
 #удаляем все разделы
