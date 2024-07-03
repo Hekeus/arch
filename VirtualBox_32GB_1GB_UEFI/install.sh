@@ -40,7 +40,7 @@ mount /dev/sda1 /mnt/efi
 
 #----------------------------------
 #минимальная установка, остальное установится в новом окружении
-pacstrap -K /mnt base linux
+pacstrap -K /mnt base linux linux-firmware
 
 #----------------------------------
 #сохраняем параметры подключения разделов
@@ -48,10 +48,10 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 #----------------------------------
 #копируем скрипт, чтобы можно было выполнять под новым chroot
-cp -a $BASEDIR/post_install.sh /mnt/root/
+cp $BASEDIR/post_install.sh /mnt/root/
 
 #----------------------------------
-arch-chroot /mnt /root/post_install.sh
+arch-chroot /mnt sh /root/post_install.sh
 
 
 
