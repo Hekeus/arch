@@ -8,6 +8,7 @@ BASEDIR=$(dirname $(realpath "$0"))
 
 #----------------------------------
 #подключение быстрого зеркала
+pacman -S --noconfirm archlinux-keyring
 cp $BASEDIR/../mirrorlist /etc/pacman.d
 pacman -Syy
 
@@ -38,36 +39,19 @@ mkdir /mnt/efi
 mount /dev/sda1 /mnt/efi
 
 #----------------------------------
-#установка
-pacstrap -K /mnt base linux linux-firmware networkmanager grub efibootmgr
+#минимальная установка, остальное установится в новом окружении
+pacstrap -K /mnt base linux linux-firmware
 
 #----------------------------------
 #сохраняем параметры подключения разделов
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #----------------------------------
-
-arch-chroot /mnt
-
-
-#----------------------------------
-#установка загрузчика
-
-grub-install --target=x86_64-efi --efi-directory=/efi
-
-grub-mkconfig -o /boot/grub/grub.cfg
-
+#копируем скрипт, чтобы можно было выполнять под новым chroot
+cp -a BASEDIR/post_install.sh /mnt/root/
 
 #----------------------------------
-#включение службы сети
-systemctl enable NetworkManager
-#systemctl start NetworkManager
+arch-chroot /mnt /root/post_install.sh
 
 
-#----------------------------------
-#установка пароля у root
-echo root | passwd --stdin
 
-#----------------------------------
-exit
-reboot
