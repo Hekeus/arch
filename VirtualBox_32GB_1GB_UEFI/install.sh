@@ -35,8 +35,7 @@ echo 'y' | mkfs.ext4 /dev/sda3 -L arch
 #подключение разделов
 mount /dev/sda3 /mnt
 swapon /dev/sda2
-mkdir /mnt/efi
-mount /dev/sda1 /mnt/efi
+mount /dev/sda1 /mnt/boot
 
 #----------------------------------
 #минимальная установка, остальное установится в новом окружении
