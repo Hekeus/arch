@@ -47,11 +47,11 @@ pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #----------------------------------
-#копируем скрипт, чтобы можно было выполнять под новым chroot
-cp $BASEDIR/post /mnt/root/
+#копируем скрипты, чтобы можно было выполнять под новым chroot
+cp -r $BASEDIR/post /mnt/root/
 
 #----------------------------------
-arch-chroot /mnt sh /root/*
-
+arch-chroot /mnt sh /root/post/network.sh
+arch-chroot /mnt sh /root/post/password.sh
 
 
