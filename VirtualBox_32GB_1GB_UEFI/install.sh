@@ -28,9 +28,9 @@ echo 'size=2G, type=S' | sfdisk -a /dev/sda
 echo 'size=30208M, type=L' | sfdisk -a /dev/sda
 
 #форматирование
-echo 'y' | mkfs.vfat /dev/sda1 -n EFI
+echo 'y' | mkfs.vfat /dev/sda1 -n efi
 echo 'y' | mkswap /dev/sda2 -L swap
-echo 'y' | mkfs.ext4 /dev/sda3 -L Arch
+echo 'y' | mkfs.ext4 /dev/sda3 -L arch
 
 #подключение разделов
 mount /dev/sda3 /mnt
