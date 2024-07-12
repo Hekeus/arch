@@ -48,10 +48,10 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 #----------------------------------
 #копируем скрипт, чтобы можно было выполнять под новым chroot
-cp $BASEDIR/post_install.sh /mnt/root/
+cp $BASEDIR/post /mnt/root/
 
 #----------------------------------
-arch-chroot /mnt sh /root/post_install.sh
+arch-chroot /mnt sh /root/*
 
 
 
