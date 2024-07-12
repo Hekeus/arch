@@ -35,6 +35,7 @@ echo 'y' | mkfs.ext4 /dev/sda3 -L arch
 #подключение разделов
 mount /dev/sda3 /mnt
 swapon /dev/sda2
+mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
 #----------------------------------
