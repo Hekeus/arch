@@ -8,7 +8,7 @@ BASEDIR=$(dirname $(realpath "$0"))
 
 #----------------------------------
 #подключение быстрого зеркала
-sh mirror.sh
+sh BASEDIR/scripts/mirror.sh
 
 #----------------------------------
 #удаляем все разделы
@@ -16,7 +16,7 @@ parted -s /dev/sda mklabel msdos
 
 #----------------------------------
 #подготовка диска
-sh partitions.sh
+sh BASEDIR/scripts/partitions.sh
 
 #----------------------------------
 #минимальная установка, остальное установится в новом окружении
@@ -27,7 +27,7 @@ pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #настраиваем загрузчки
-sh bootloader.sh
+sh BASEDIR/scripts/bootloader.sh
 
 #----------------------------------
 #копируем скрипты, чтобы можно было выполнять под новым chroot
