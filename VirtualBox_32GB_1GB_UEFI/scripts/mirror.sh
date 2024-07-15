@@ -8,5 +8,5 @@ BASEDIR=$(dirname $(realpath "$0"))
 
 #подключение быстрого зеркала
 pacman -S --noconfirm archlinux-keyring
-cp $BASEDIR/../mirrorlist /etc/pacman.d
+cp $BASEDIR/../../mirrorlist /etc/pacman.d
 pacman -Syy
