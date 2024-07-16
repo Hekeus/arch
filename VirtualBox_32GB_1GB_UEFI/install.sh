@@ -37,5 +37,6 @@ cp -r $BASEDIR/post /mnt/root/
 #настройка системы
 arch-chroot /mnt sh /root/post/network.sh
 arch-chroot /mnt sh /root/post/password.sh
+arch-chroot /mnt sh /root/post/timezone.sh
 
 
