@@ -7,7 +7,7 @@ set -eo pipefail
 BASEDIR=$(dirname $(realpath "$0"))
 
 #включение параллельной загрузки
-sed 's/#ParallelDownloads = 5/ParallelDownloads = 15/' /etc/pacman.conf > /etc/pacman.conf
+sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 15/' /etc/pacman.conf
 
 #подключение быстрого зеркала
 pacman -S --noconfirm archlinux-keyring
