@@ -30,13 +30,13 @@ genfstab -U /mnt >> /mnt/etc/fstab
 sh $BASEDIR/scripts/bootloader.sh
 
 #----------------------------------
-#копируем скрипты, чтобы можно было выполнять под новым chroot
+#копируем скрипты, чтобы можно было выполнять под новым root
 cp -r $BASEDIR/post /mnt/root/
 
 #----------------------------------
-#настройка системы
-arch-chroot /mnt sh /root/post/network.sh
-arch-chroot /mnt sh /root/post/password.sh
-arch-chroot /mnt sh /root/post/timezone.sh
+#минимальная настройка системы, остальное настраивается после перезагрузки
+arch-chroot /mnt sh /root/post/chroot/network.sh
+arch-chroot /mnt sh /root/post/chroot/password.sh
 
+shutdown -r now
 
