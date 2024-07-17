@@ -38,5 +38,7 @@ cp -r $BASEDIR/post /mnt/root/
 arch-chroot /mnt sh /root/post/chroot/network.sh
 arch-chroot /mnt sh /root/post/chroot/password.sh
 
+umount -R /mnt
+
 shutdown -r now
 
