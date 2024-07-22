@@ -31,12 +31,12 @@ sh $BASEDIR/scripts/bootloader.sh
 
 #----------------------------------
 #копируем скрипты, чтобы можно было выполнять под новым root
-cp -r $BASEDIR/install /mnt/root/
+cp -r $BASEDIR/setup /mnt/root/
 
 #----------------------------------
 #минимальная настройка системы, остальное настраивается после перезагрузки
-arch-chroot /mnt sh /root/install/chroot/network.sh
-arch-chroot /mnt sh /root/install/chroot/password.sh
+arch-chroot /mnt sh /root/setup/chroot/network.sh
+arch-chroot /mnt sh /root/setup/chroot/password.sh
 
 umount -R /mnt
 
