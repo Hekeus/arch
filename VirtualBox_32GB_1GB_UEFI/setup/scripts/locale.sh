@@ -5,10 +5,10 @@ set -x
 set -eo pipefail
 
 #локализация
-cp locale.gen /etc
-locale-gen
-cp locale.conf /etc
-cp vconlole.conf /etc
+
+localectl set-locale LANG=en_US.UTF-8
+localectl set-locale LANG=ru_RU.UTF-8
+
 
 #----------------------------------
 exit

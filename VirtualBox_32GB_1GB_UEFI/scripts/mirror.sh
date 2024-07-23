@@ -11,5 +11,6 @@ sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 15/' /etc/pacman.conf
 
 #подключение быстрого зеркала
 pacman -S --noconfirm archlinux-keyring
-cp $BASEDIR/../../mirrorlist /etc/pacman.d
+pacman -S --noconfirm reflector
+reflector --country Russia --latest 10 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
 pacman -Syy
