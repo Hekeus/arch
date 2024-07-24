@@ -9,3 +9,4 @@ BASEDIR=$(dirname $(realpath "$0"))
 #----------------------------------
 #настройка времени
 sh $BASEDIR/scripts/timezone.sh
+sh $BASEDIR/scripts/users.sh
