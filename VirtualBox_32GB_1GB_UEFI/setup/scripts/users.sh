@@ -6,8 +6,6 @@ set -eo pipefail
 
 pacman -S --noconfirm sudo
 
-sed -i 's/## Defaults specification/## Defaults specification \nDefaults passwd_timeout=0/' /etc/sudoers
-
 #включение возможности запуска sudo
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
