@@ -4,12 +4,6 @@
 set -x
 set -eo pipefail
 
-#установка пакетов для компилирования
-pacman -S --noconfirm base-devel git
-
-#установка видео драйвера
-pacman -S --noconfirm xf86-video-vmware
-
 #установка x
 pacman -S --noconfirm xorg-server xorg-xinit
 

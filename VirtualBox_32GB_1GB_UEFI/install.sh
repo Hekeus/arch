@@ -19,14 +19,15 @@ parted -s /dev/sda mklabel msdos
 sh $BASEDIR/scripts/partitions.sh
 
 #----------------------------------
-#минимальная установка, остальное установится в новом окружении
-pacstrap -K /mnt base linux linux-firmware
+#для не виртуальных машин нужно установить микрокод и прописать в загрузчик
+#минимальная установка, пакеты для сборок, драйвер видеокарты
+pacstrap -K /mnt base linux linux-firmware base-devel git xf86-video-vmware
 
 #----------------------------------
 #сохраняем параметры подключения разделов
 genfstab -U /mnt >> /mnt/etc/fstab
 
-#настраиваем загрузчки
+#настраиваем загрузчик
 sh $BASEDIR/scripts/bootloader.sh
 
 #----------------------------------
