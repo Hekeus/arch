@@ -13,5 +13,8 @@ sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 useradd -m user -G wheel -s /bin/bash
 passwd -d user
 
+#отключение входа root
+passwd --lock root
+
 #----------------------------------
 exit
