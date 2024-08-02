@@ -12,7 +12,7 @@ cd setup/src/dwm
 sed -i 's/"st"/"alacritty"/' config.h
 
 #сборка и установка через пакеты
-makepkg -i
+makepkg -i --noconfirm
 
 #для пользователя user создать настройку Xorg
 touch /home/user/.xinitrc
