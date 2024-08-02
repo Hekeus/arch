@@ -14,10 +14,12 @@ sed -i 's/"st"/"alacritty"/' config.h
 #сборка и установка через пакеты
 makepkg -i --noconfirm
 
+cd /home/user
+
 #для пользователя user создать настройку Xorg
 touch /home/user/.xinitrc
 echo "exec dwm" >> /home/user/.xinitrc
 
-cd /home/user
+
 #----------------------------------
 exit
