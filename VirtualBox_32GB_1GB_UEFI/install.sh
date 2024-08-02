@@ -28,7 +28,7 @@ networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
 terminus-font \
 alacritty \
-libx11 libxft
+libx11 libxft libxinerama
 
 #----------------------------------
 #сохраняем параметры подключения разделов
@@ -52,6 +52,9 @@ rm -r /mnt/root/chroot
 
 #копируем скрипты для дальнейшего использования под пользователем user
 cp -r $BASEDIR/setup /mnt/home/user
+
+#меняем владельца каталога
+arch-chroot /mnt chown -R user:user /mnt/home/user/setup
 
 umount -R /mnt
 
