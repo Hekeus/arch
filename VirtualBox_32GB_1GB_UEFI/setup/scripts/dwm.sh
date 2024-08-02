@@ -4,21 +4,15 @@
 set -x
 set -eo pipefail
 
-#установка x
-pacman -S --noconfirm xorg-server xorg-xinit
-
-#зависимости dwm, нужны ли?
-pacman -S --noconfirm libx11 libxft
-
-#установка моноширинного шрифта
-pacman -S --noconfirm terminus-font
-
 #сборка dwm, добавить установку через pacman?
-mkdir src
 git clone git://git.suckless.org/dwm src/dwm
 cd src/dwm
 sed -i 's/XINERAMALIBS/#XINERAMALIBS/' config.mk 
 sed -i 's/XINERAMAFLAGS/#XINERAMAFLAGS/' config.mk 
+
+#настройка dwm
+cp config.def.h config.h
+sed -i "s/\"st\"/\"alacritty\"/" config.h
 
 make clean
 make install

@@ -5,9 +5,6 @@ set -x
 set -eo pipefail
 
 #----------------------------------
-#настройка сети
-pacman -S --noconfirm networkmanager
-
 #включение службы сети
 systemctl enable NetworkManager
 

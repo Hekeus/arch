@@ -5,8 +5,8 @@ set -x
 set -eo pipefail
 
 #установка временной зоны
-timedatectl set-ntp true
-timedatectl set-timezone Asia/Yekaterinburg
+sudo timedatectl set-ntp true
+sudo timedatectl set-timezone Asia/Yekaterinburg
 
 
 #----------------------------------

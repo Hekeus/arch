@@ -21,7 +21,13 @@ sh $BASEDIR/scripts/partitions.sh
 #----------------------------------
 #для не виртуальных машин нужно установить микрокод и прописать в загрузчик
 #минимальная установка, пакеты для сборок, драйвер видеокарты
-pacstrap -K /mnt base linux linux-firmware base-devel git xf86-video-vmware
+pacstrap -K /mnt base linux linux-firmware \
+sudo \
+base-devel git \
+networkmanager \
+xf86-video-vmware xorg-server xorg-xinit \
+terminus-font \
+alacritty
 
 #----------------------------------
 #сохраняем параметры подключения разделов
@@ -32,12 +38,19 @@ sh $BASEDIR/scripts/bootloader.sh
 
 #----------------------------------
 #копируем скрипты, чтобы можно было выполнять под новым root
-cp -r $BASEDIR/setup /mnt/root/
+cp -r $BASEDIR/chroot /mnt/root/
 
 #----------------------------------
 #минимальная настройка системы, остальное настраивается после перезагрузки
-arch-chroot /mnt sh /root/setup/chroot/network.sh
-arch-chroot /mnt sh /root/setup/chroot/password.sh
+arch-chroot /mnt sh /root/chroot/network.sh
+arch-chroot /mnt sh /root/chroot/users.sh
+#arch-chroot /mnt sh /root/chroot/password.sh
+
+#удаляем из каталога root, далее все будет выполняться под пользователем user
+rm -r /mnt/root/chroot
+
+#копируем скрипты для дальнейшего использования под пользователем user
+cp -r $BASEDIR/setup /mnt/home/user
 
 umount -R /mnt
 
