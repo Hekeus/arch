@@ -27,7 +27,8 @@ base-devel git \
 networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
 terminus-font \
-alacritty
+alacritty \
+libx11 libxft
 
 #----------------------------------
 #сохраняем параметры подключения разделов
