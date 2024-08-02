@@ -54,7 +54,7 @@ rm -r /mnt/root/chroot
 cp -r $BASEDIR/setup /mnt/home/user
 
 #меняем владельца каталога
-arch-chroot /mnt chown -R user:user /mnt/home/user/setup
+arch-chroot /mnt chown -R user:user /home/user/setup
 
 umount -R /mnt
 
