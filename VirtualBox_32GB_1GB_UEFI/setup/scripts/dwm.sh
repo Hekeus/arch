@@ -4,17 +4,6 @@
 set -x
 set -eo pipefail
 
-#сборка dwm, добавить установку через pacman?
-git clone https://aur.archlinux.org/dwm.git setup/src/dwm
-cd setup/src/dwm
-
-#настройка dwm
-sed -i 's/"st"/"alacritty"/' config.h
-
-#сборка и установка через пакеты
-makepkg -i --noconfirm
-
-cd /home/user
 
 #для пользователя user создать настройку Xorg
 touch /home/user/.xinitrc
