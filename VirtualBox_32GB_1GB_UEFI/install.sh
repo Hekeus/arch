@@ -27,8 +27,8 @@ base-devel git \
 networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
 terminus-font \
-alacritty \
-libx11 libxft libxinerama
+libx11 libxft libxinerama \
+plymouth
 
 #----------------------------------
 #сохраняем параметры подключения разделов
