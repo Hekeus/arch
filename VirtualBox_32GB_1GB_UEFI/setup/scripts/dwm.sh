@@ -13,7 +13,7 @@ makepkg -i --noconfirm
 git clone https://aur.archlinux.org/dwm-git.git /home/user/setup/src/dwm
 cd /home/user/setup/src/dwm
 #настройка dwm
-sed -i 's/{ "monospace:size=10" }/{ "JetBrains Mono:size=11" }/' config.h
+sed -i 's/{ "monospace:size=10" }/{ "JetBrains Mono:size=13" }/' config.h
 makepkg -i --noconfirm
 
 #установка меню для запуска приложений
