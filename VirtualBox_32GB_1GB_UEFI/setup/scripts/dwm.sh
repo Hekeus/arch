@@ -7,14 +7,14 @@ set -eo pipefail
 #сборка и установка виртуальной консоли st
 git clone https://aur.archlinux.org/st-git.git /home/user/setup/src/st
 cd /home/user/setup/src/st
-sudo makepkg -i --noconfirm
-sudo makepkg --clean
+makepkg -i --noconfirm
+makepkg --clean
 
 #сборка и установка рабочего стола dwm
 git clone https://aur.archlinux.org/dwm-git.git /home/user/setup/src/dwm
 cd /home/user/setup/src/dwm
-sudo makepkg -i --noconfirm
-sudo makepkg --clean
+makepkg -i --noconfirm
+makepkg --clean
 
 #установка меню для запуска приложений
 sudo pacman -S --noconfirm dmenu
