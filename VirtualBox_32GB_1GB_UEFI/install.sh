@@ -26,7 +26,7 @@ sudo \
 base-devel git \
 networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
-terminus-font \
+ttf-jetbrains-mono \
 libx11 libxft libxinerama \
 plymouth
 

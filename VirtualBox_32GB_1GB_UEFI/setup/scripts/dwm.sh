@@ -12,6 +12,8 @@ makepkg -i --noconfirm
 #сборка и установка рабочего стола dwm
 git clone https://aur.archlinux.org/dwm-git.git /home/user/setup/src/dwm
 cd /home/user/setup/src/dwm
+#настройка dwm
+sed -i 's/{ "monospace:size=10" }/{ "JetBrains Mono:size=11" }/' config.h
 makepkg -i --noconfirm
 
 #установка меню для запуска приложений
