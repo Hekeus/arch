@@ -1,0 +1,25 @@
+pkgname=dwm
+pkgver=0
+pkgrel=1
+pkgdesk='dynamic window manager'
+url="https://dwm.suckless.org"
+license=('MIT')
+arch=('x86_64')
+source=("$pkgname::git://git.suckless.org/dwm")
+
+pkgver() {
+	cd "$srcdir/$pkgname"
+    cat config.mk | grep "VERSION = " | sed 's/VERSION = //'
+}
+
+prepare() {
+	cp "$startdir/config.h" "$srcdir/$pkgname/config.h"
+}
+
+package() {
+	cd "$srcdir/$pkgname"
+	make PREFIX=/usr DESTDIR="$pkgdir" install
+	install -m644 -D "$startdir/dwm.desktop" "$pkgdir/usr/share/xsessions/dwm.desktop"
+}
+
+sha256sums=('SKIP')
