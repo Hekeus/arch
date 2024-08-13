@@ -53,9 +53,6 @@ rm -r /mnt/root/chroot
 #копируем скрипты для дальнейшего использования под пользователем user
 cp -r $BASEDIR/setup /mnt/home/user
 
-#копируем настройки для сборки программ
-cp -r $BASEDIR/PKGBUILDS /mnt/home/user/setup
-
 #меняем владельца каталога
 arch-chroot /mnt chown -R user:user /home/user/setup
 
