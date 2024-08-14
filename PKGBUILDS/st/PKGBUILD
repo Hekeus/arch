@@ -21,7 +21,7 @@ prepare() {
 package() {
 	cd "$srcdir/$pkgname"
 	make PREFIX=/usr DESTDIR="$pkgdir" install
-	cp st.info /usr/share
+	cp st.info "$pkgdir/usr/share"
 }
 
 sha256sums=('SKIP')
