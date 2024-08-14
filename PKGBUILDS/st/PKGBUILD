@@ -14,11 +14,13 @@ pkgver() {
 
 prepare() {
 	cp "$startdir/config.h" "$srcdir/$pkgname/config.h"
+	sed -i 's/tic -sx st.info//' "$srcdir/$pkgname/Makefile"
 }
 
 package() {
 	cd "$srcdir/$pkgname"
 	make PREFIX=/usr DESTDIR="$pkgdir" install	
+	tic -sx st.info
 }
 
 sha256sums=('SKIP')
