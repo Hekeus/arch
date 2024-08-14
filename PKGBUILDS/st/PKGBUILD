@@ -6,6 +6,7 @@ url="https://dwm.suckless.org"
 license=('MIT')
 arch=('x86_64')
 source=("$pkgname::git://git.suckless.org/st")
+install=st.install
 
 pkgver() {
 	cd "$srcdir/$pkgname"
@@ -19,8 +20,8 @@ prepare() {
 
 package() {
 	cd "$srcdir/$pkgname"
-	make PREFIX=/usr DESTDIR="$pkgdir" install	
-	tic -sx st.info
+	make PREFIX=/usr DESTDIR="$pkgdir" install
+	cp st.info /usr/share
 }
 
 sha256sums=('SKIP')
