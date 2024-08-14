@@ -27,8 +27,7 @@ base-devel git \
 networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
 ttf-jetbrains-mono \
-libx11 libxft libxinerama \
-plymouth
+libx11 libxft libxinerama
 
 #----------------------------------
 #сохраняем параметры подключения разделов
