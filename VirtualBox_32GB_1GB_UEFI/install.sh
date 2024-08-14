@@ -39,16 +39,16 @@ sh $BASEDIR/scripts/bootloader.sh
 
 #----------------------------------
 #копируем скрипты, чтобы можно было выполнять под новым root
-cp -r $BASEDIR/chroot /mnt/root/
+cp -r $BASEDIR/setup/scripts /mnt/root/
 
 #----------------------------------
 #минимальная настройка системы, остальное настраивается после перезагрузки
-arch-chroot /mnt sh /root/chroot/network.sh
-arch-chroot /mnt sh /root/chroot/users.sh
-#arch-chroot /mnt sh /root/chroot/password.sh
+arch-chroot /mnt sh /root/scripts/ch_network.sh
+arch-chroot /mnt sh /root/scripts/ch_users.sh
+#arch-chroot /mnt sh /root/scripts/ch_password.sh
 
 #удаляем из каталога root, далее все будет выполняться под пользователем user
-rm -r /mnt/root/chroot
+rm -r /mnt/root/scripts
 
 #копируем скрипты для дальнейшего использования под пользователем user
 cp -r $BASEDIR/setup /mnt/home/user
