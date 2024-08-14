@@ -1,11 +1,11 @@
-pkgname=dwm
+pkgname=st
 pkgver=0
 pkgrel=1
-pkgdesk='dynamic window manager'
+pkgdesk='simple terminal'
 url="https://dwm.suckless.org"
 license=('MIT')
 arch=('x86_64')
-source=("$pkgname::git://git.suckless.org/dwm")
+source=("$pkgname::git://git.suckless.org/st")
 
 pkgver() {
 	cd "$srcdir/$pkgname"
@@ -18,9 +18,7 @@ prepare() {
 
 package() {
 	cd "$srcdir/$pkgname"
-	make PREFIX=/usr DESTDIR="$pkgdir" install
-	touch /home/user/.xinitrc
-	echo "exec dwm" >> /home/user/.xinitrc
+	make PREFIX=/usr DESTDIR="$pkgdir" install	
 }
 
 sha256sums=('SKIP')
