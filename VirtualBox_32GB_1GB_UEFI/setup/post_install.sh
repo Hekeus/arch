@@ -12,3 +12,5 @@ sh $BASEDIR/scripts/timezone.sh
 sh $BASEDIR/scripts/makepkg.sh
 sh $BASEDIR/scripts/virtualbox.sh
 sh $BASEDIR/scripts/dwm.sh
+
+shutdown -r now
