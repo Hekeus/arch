@@ -8,7 +8,7 @@ set -eo pipefail
 sudo pacman -U --noconfirm setup/package/dwm-takensheep.pkg.tar.zst
 
 #установка виртуальной консоли st
-sudo pacman -U --noconfirm setup/package/st-0.9.2-1-x86_64.pkg.tar.zst
+sudo pacman -U --noconfirm setup/package/st-takensheep.pkg.tar.zst
 
 #установка меню для запуска приложений
 sudo pacman -S --noconfirm dmenu
