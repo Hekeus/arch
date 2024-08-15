@@ -17,10 +17,13 @@ sudo pacman -S --noconfirm dmenu
 sudo pacman -U --noconfirm setup/package/xlogin-git-14-1-any.pkg.tar.zst
 systemctl enable xlogin@user
 
+#установка фона рабочего стола
+sudo pacman -S feh
+cp ~/setup/wallpaper.png ~/.config
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
-echo "exec dwm" >> /home/user/.xinitrc
+echo "feh --bg-fill ~/.config/wallpaper.png & exec dwm" >> /home/user/.xinitrc
 
 #----------------------------------
 exit
