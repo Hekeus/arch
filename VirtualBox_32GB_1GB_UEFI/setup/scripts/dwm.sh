@@ -5,7 +5,7 @@ set -x
 set -eo pipefail
 
 #установка dwm
-sudo pacman -U --noconfirm setup/package/dwm-6.5-1-x86_64.pkg.tar.zst
+sudo pacman -U --noconfirm setup/package/dwm-takensheep.pkg.tar.zst
 
 #установка виртуальной консоли st
 sudo pacman -U --noconfirm setup/package/st-0.9.2-1-x86_64.pkg.tar.zst
