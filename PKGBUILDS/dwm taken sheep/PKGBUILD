@@ -1,0 +1,27 @@
+pkgname=dwm
+pkgver=0
+pkgrel=1
+pkgdesk='dynamic window manager themes: taken sheeps'
+url="https://dwm.suckless.org"
+license=('MIT')
+arch=('x86_64')
+source=("$pkgname::git://git.suckless.org/dwm")
+
+pkgver() {
+	cd "$srcdir/$pkgname"
+    cat config.mk | grep "VERSION = " | sed 's/VERSION = //'
+}
+
+prepare() {
+	cp "$startdir/config.h" "$srcdir/$pkgname/config.h"
+	cp "$startdir/colors-wal-dwm.h" "$srcdir/$pkgname/colors-wal-dwm.h"
+}
+
+package() {
+	cd "$srcdir/$pkgname"
+	make PREFIX=/usr DESTDIR="$pkgdir" install
+	touch /home/user/.xinitrc
+	echo "exec dwm" >> /home/user/.xinitrc
+}
+
+sha256sums=('SKIP')
