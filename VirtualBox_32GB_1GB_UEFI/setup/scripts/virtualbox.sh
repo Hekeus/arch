@@ -4,9 +4,12 @@
 sudo pacman -S --noconfirm virtualbox-guest-utils
 sudo modprobe -a vboxguest vboxsf vboxvideo
 
-#нужно засунуть в автозапуск
+#монтирование
 sudo VBoxClient-all
 sudo mount -t vboxsf -o uid=1000,gid=1000 share /mnt
+
+sudo echo "share" /mnt vboxsf defaults,uid=1000,gid=1000,rw 0 0 >> /etc/fstab
+
 
 #----------------------------------
 exit

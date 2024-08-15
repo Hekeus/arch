@@ -52,6 +52,9 @@ rm -r /mnt/root/scripts
 #копируем скрипты для дальнейшего использования под пользователем user
 cp -r $BASEDIR/setup /mnt/home/user
 
+#копируем пакеты для установки
+cp -r $BASEDIR/../package /mnt/home/user/setup
+
 #меняем владельца каталога
 arch-chroot /mnt chown -R user:user /home/user/setup
 

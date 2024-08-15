@@ -9,7 +9,7 @@ set -eo pipefail
 
 UUIDroot=$(lsblk /dev/sda3 -dn -o UUID) 
 UUIDswap=$(lsblk /dev/sda2 -dn -o UUID)
-kernelparameters="root=UUID=$UUIDroot resume=UUID=$UUIDswap initrd=/initramfs-linux.img quiet splash ro"
+kernelparameters="root=UUID=$UUIDroot resume=UUID=$UUIDswap initrd=/initramfs-linux.img quiet ro"
 
 efibootmgr --create --disk /dev/sda --part 1 --label "arch" --loader /vmlinuz-linux --unicode "$kernelparameters"
 
