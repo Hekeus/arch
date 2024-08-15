@@ -18,7 +18,7 @@ sudo pacman -U --noconfirm setup/package/xlogin-git-14-1-any.pkg.tar.zst
 systemctl enable xlogin@user
 
 #установка фона рабочего стола
-sudo pacman -S feh
+sudo pacman -S --noconfirm feh
 cp ~/setup/wallpaper.png ~/.config
 
 #для пользователя user создать настройку запуска при старте X
