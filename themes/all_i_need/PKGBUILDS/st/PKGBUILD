@@ -1,11 +1,12 @@
-pkgname=dwm
+pkgname=st
 pkgver=0
 pkgrel=1
-pkgdesk='dynamic window manager themes: taken sheeps'
+pkgdesk='simple terminal'
 url="https://dwm.suckless.org"
 license=('MIT')
 arch=('x86_64')
-source=("$pkgname::git://git.suckless.org/dwm")
+source=("$pkgname::git://git.suckless.org/st")
+install=st.install
 
 pkgver() {
 	cd "$srcdir/$pkgname"
@@ -14,13 +15,13 @@ pkgver() {
 
 prepare() {
 	cp "$startdir/config.h" "$srcdir/$pkgname/config.h"
+	sed -i 's/tic -sx st.info//' "$srcdir/$pkgname/Makefile"
 }
 
 package() {
 	cd "$srcdir/$pkgname"
 	make PREFIX=/usr DESTDIR="$pkgdir" install
-	touch /home/user/.xinitrc
-	echo "exec dwm" >> /home/user/.xinitrc
+	cp st.info "$pkgdir/usr/share"
 }
 
 sha256sums=('SKIP')

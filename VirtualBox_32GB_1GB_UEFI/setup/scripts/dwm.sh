@@ -4,11 +4,13 @@
 set -x
 set -eo pipefail
 
+theme=all_i_need
+
 #установка dwm
-sudo pacman -U --noconfirm setup/themes/taken_sheep/dwm-takensheep.pkg.tar.zst
+sudo pacman -U --noconfirm setup/themes/%theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
 
 #установка виртуальной консоли st
-sudo pacman -U --noconfirm setup/themes/taken_sheep/st-takensheep.pkg.tar.zst
+sudo pacman -U --noconfirm setup/themes/%theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
 
 #установка меню для запуска приложений
 sudo pacman -S --noconfirm dmenu
@@ -19,7 +21,7 @@ systemctl enable xlogin@user
 
 #установка фона рабочего стола
 sudo pacman -S --noconfirm feh
-cp ~/setup/themes/taken_sheep/wallpaper.png ~/.config
+cp ~/setup/themes/%theme/wallpaper.png ~/.config
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
