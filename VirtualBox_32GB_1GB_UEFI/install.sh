@@ -26,7 +26,7 @@ sudo \
 base-devel git \
 networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
-ttf-jetbrains-mono \
+ttf-jetbrains-mono-nerd \
 libx11 libxft libxinerama
 
 #----------------------------------
