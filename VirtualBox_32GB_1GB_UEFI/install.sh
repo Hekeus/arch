@@ -55,6 +55,9 @@ cp -r $BASEDIR/setup /mnt/home/user
 #копируем пакеты для установки
 cp -r $BASEDIR/../package /mnt/home/user/setup
 
+#копируем темы для установки
+cp -r $BASEDIR/../themes /mnt/home/user/setup
+
 #меняем владельца каталога
 arch-chroot /mnt chown -R user:user /home/user/setup
 
