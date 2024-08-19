@@ -27,7 +27,8 @@ base-devel git \
 networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
 ttf-jetbrains-mono-nerd \
-libx11 libxft libxinerama
+libx11 libxft libxinerama \
+vim
 
 #----------------------------------
 #сохраняем параметры подключения разделов
