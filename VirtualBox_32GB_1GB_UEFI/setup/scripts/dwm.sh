@@ -7,10 +7,10 @@ set -eo pipefail
 theme=all_i_need
 
 #установка dwm
-sudo pacman -U --noconfirm setup/themes/%theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
+sudo pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
 
 #установка виртуальной консоли st
-sudo pacman -U --noconfirm setup/themes/%theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
+sudo pacman -U --noconfirm setup/themes/$theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
 
 #установка меню для запуска приложений
 sudo pacman -S --noconfirm dmenu
