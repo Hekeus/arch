@@ -8,6 +8,7 @@ BASEDIR=$(dirname $(realpath "$0"))
 
 #----------------------------------
 sh $BASEDIR/scripts/environment.sh
+sh $BASEDIR/scripts/locale.sh
 sh $BASEDIR/scripts/timezone.sh
 sh $BASEDIR/scripts/makepkg.sh
 sh $BASEDIR/scripts/virtualbox.sh

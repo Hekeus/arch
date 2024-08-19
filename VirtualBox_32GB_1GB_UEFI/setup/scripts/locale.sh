@@ -4,10 +4,12 @@
 set -x
 set -eo pipefail
 
-#локализация
+#генерирование локали
+sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sudo sed -i 's/#ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
 
-localectl set-locale LANG=en_US.UTF-8
-localectl set-locale LANG=ru_RU.UTF-8
+sudo localectl set-locale LANG=ru_RU.UTF-8
 
 
 #----------------------------------
