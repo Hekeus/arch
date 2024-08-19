@@ -21,7 +21,7 @@ systemctl enable xlogin@user
 
 #установка фона рабочего стола
 sudo pacman -S --noconfirm feh
-cp ~/setup/themes/%theme/wallpaper.png ~/.config
+cp ~/setup/themes/$theme/wallpaper.png ~/.config
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
