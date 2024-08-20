@@ -28,7 +28,7 @@ networkmanager \
 xf86-video-vmware xorg-server xorg-xinit \
 ttf-jetbrains-mono-nerd \
 libx11 libxft libxinerama \
-vim
+vim nnn
 
 #----------------------------------
 #сохраняем параметры подключения разделов
