@@ -10,6 +10,7 @@ sudo sed -i 's/#ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
 
 sudo localectl set-locale LANG=ru_RU.UTF-8
+sudo sh -c 'echo "LC_MESSAGES=en_US.UTF-8" >> /etc/locale.conf'
 
 
 #----------------------------------

@@ -11,6 +11,8 @@ sudo pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.
 
 #установка виртуальной консоли st
 sudo pacman -U --noconfirm setup/themes/$theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
+#включение клавиши delete
+sudo sh -c 'echo "set enable-keypad on" >> etc/inputrc'
 
 #установка меню для запуска приложений
 sudo pacman -S --noconfirm dmenu
