@@ -7,6 +7,7 @@ set -eo pipefail
 BASEDIR=$(dirname $(realpath "$0"))
 
 #----------------------------------
+sh $BASEDIR/scripts/pacman.sh
 sh $BASEDIR/scripts/environment.sh
 sh $BASEDIR/scripts/locale.sh
 sh $BASEDIR/scripts/timezone.sh
