@@ -6,6 +6,12 @@ set -eo pipefail
 
 theme=all_i_need
 
+#установка Xorg
+sudo pacman -S xorg-server xorg-xinit 
+
+#установка шрифта и библиотек
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd libx11 libxft libxinerama
+
 #установка dwm
 sudo pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
 

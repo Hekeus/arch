@@ -25,9 +25,8 @@ pacstrap -K /mnt base linux linux-firmware \
 sudo \
 base-devel git \
 networkmanager \
-xf86-video-vmware xorg-server xorg-xinit \
-ttf-jetbrains-mono-nerd \
-libx11 libxft libxinerama \
+xf86-video-vmware\
+man-db \
 vim nnn
 
 #----------------------------------
