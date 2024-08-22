@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "\uf303", "\ue5ff", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "\uf303", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -27,7 +27,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class         instance    title       tags mask     isfloating   monitor */
-	{ "st-256color", NULL,      "nnn",       1 << 1,       0,           -1 },
+	{ "NULL",        NULL,      "nnn",       0,            False,       -1 },
 };
 
 /* layout(s) */
@@ -58,9 +58,15 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *reboot[] = { "shutdown", "-r" , "now" , NULL };
+static const char *shutdown[] = { "shutdown", "now" , NULL };
+static const char *nnn[] = { "st", "-name", "nnn", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,			XK_n,	   spawn,	   {.v = nnn } },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = reboot } },
+	{ MODKEY|ShiftMask,             XK_h,      spawn,          {.v = shutdown } },
 	{ MODKEY,                     	XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                0x60,	   spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
