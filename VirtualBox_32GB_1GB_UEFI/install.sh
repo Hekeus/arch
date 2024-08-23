@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 #Virtual box 32GB Hard 1GB RAM
 
 set -x
-set -eo pipefail
 
 BASEDIR=$(dirname $(realpath "$0"))
 
@@ -27,7 +26,8 @@ base-devel git \
 networkmanager \
 xf86-video-vmware\
 man-db \
-vim nnn
+dash \
+vim nnn less
 
 #----------------------------------
 #сохраняем параметры подключения разделов

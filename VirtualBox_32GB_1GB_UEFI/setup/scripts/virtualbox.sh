@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #Virtual box 32GB Hard 1GB RAM
 
 sudo pacman -S --noconfirm virtualbox-guest-utils

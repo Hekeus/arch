@@ -1,7 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
 set -x
-set -eo pipefail
 
 sudo touch /etc/profile.d/env.sh
 sudo sh -c 'echo "export EDITOR=vim" >> /etc/profile.d/env.sh'

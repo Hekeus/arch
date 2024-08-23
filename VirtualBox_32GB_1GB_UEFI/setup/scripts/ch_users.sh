@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 #Virtual box 32GB Hard 1GB RAM
 
 set -x
-set -eo pipefail
+
 
 pacman -S --noconfirm sudo
 
@@ -10,7 +10,7 @@ pacman -S --noconfirm sudo
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 #создание пользователя без пароля
-useradd -m user -G wheel -s /bin/bash
+useradd -m user -G wheel -s /bin/dash
 passwd -d user
 
 #отключение входа root

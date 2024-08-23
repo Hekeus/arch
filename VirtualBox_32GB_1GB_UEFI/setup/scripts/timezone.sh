@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 #Virtual box 32GB Hard 1GB RAM
 
 set -x
-set -eo pipefail
+
 
 #установка временной зоны
 sudo timedatectl set-ntp true

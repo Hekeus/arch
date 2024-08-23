@@ -1,7 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
 set -x
-set -eo pipefail
 
 #отключаем создание отладочных пакетов
 mkdir -p ~/.config/pacman

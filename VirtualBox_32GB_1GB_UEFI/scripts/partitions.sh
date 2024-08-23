@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 #Virtual box 32GB Hard 1GB RAM
 
 set -x
-set -eo pipefail
 
 #разметка диска в gpt
 echo 'label: gpt' | sfdisk /dev/sda
