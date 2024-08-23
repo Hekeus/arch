@@ -3,6 +3,9 @@
 
 set -x
 
+#удаляем все разделы
+parted -s /dev/sda mklabel msdos
+
 #разметка диска в gpt
 echo 'label: gpt' | sfdisk /dev/sda
 

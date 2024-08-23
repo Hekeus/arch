@@ -1,5 +1,4 @@
 #!/bin/sh
-#Virtual box 32GB Hard 1GB RAM
 
 set -x
 
@@ -10,20 +9,17 @@ BASEDIR=$(dirname $(realpath "$0"))
 sh $BASEDIR/scripts/mirror.sh
 
 #----------------------------------
-#удаляем все разделы
-parted -s /dev/sda mklabel msdos
-
-#----------------------------------
 #подготовка диска
 sh $BASEDIR/scripts/partitions.sh
 
+VIDEODRIVER=xf86-video-vmware
+
 #----------------------------------
-#для не виртуальных машин нужно установить микрокод и прописать в загрузчик
 #минимальная установка, пакеты для сборок, драйвер видеокарты
 pacstrap -K /mnt base linux linux-firmware \
 base-devel git \
 networkmanager \
-xf86-video-vmware \
+$VIDEODRIVER \
 man-db \
 vim nnn less
 
@@ -44,7 +40,6 @@ arch-chroot /mnt sh /root/scripts/ch_dash.sh
 arch-chroot /mnt sh /root/scripts/ch_network.sh
 arch-chroot /mnt sh /root/scripts/ch_users.sh
 arch-chroot /mnt sh /root/scripts/ch_env.sh
-#arch-chroot /mnt sh /root/scripts/ch_password.sh
 
 #удаляем из каталога root, далее все будет выполняться под пользователем user
 rm -r /mnt/root/scripts
