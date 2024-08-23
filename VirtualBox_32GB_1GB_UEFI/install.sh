@@ -21,12 +21,10 @@ sh $BASEDIR/scripts/partitions.sh
 #для не виртуальных машин нужно установить микрокод и прописать в загрузчик
 #минимальная установка, пакеты для сборок, драйвер видеокарты
 pacstrap -K /mnt base linux linux-firmware \
-sudo \
 base-devel git \
 networkmanager \
 xf86-video-vmware \
 man-db \
-dash \
 vim nnn less
 
 #----------------------------------
