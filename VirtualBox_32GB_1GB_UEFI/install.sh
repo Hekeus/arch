@@ -43,6 +43,7 @@ cp -r $BASEDIR/setup/scripts /mnt/root/
 arch-chroot /mnt sh /root/scripts/ch_dash.sh
 arch-chroot /mnt sh /root/scripts/ch_network.sh
 arch-chroot /mnt sh /root/scripts/ch_users.sh
+arch-chroot /mnt sh /root/scripts/ch_env.sh
 #arch-chroot /mnt sh /root/scripts/ch_password.sh
 
 #удаляем из каталога root, далее все будет выполняться под пользователем user
