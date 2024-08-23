@@ -10,7 +10,7 @@ sh $BASEDIR/scripts/mirror.sh
 
 #----------------------------------
 #подготовка диска
-sh $BASEDIR/scripts/partitions.sh
+sh $BASEDIR/scripts/partitions_VB.sh
 
 VIDEODRIVER=xf86-video-vmware
 
