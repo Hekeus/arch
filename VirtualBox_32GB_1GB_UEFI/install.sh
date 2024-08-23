@@ -24,7 +24,7 @@ pacstrap -K /mnt base linux linux-firmware \
 sudo \
 base-devel git \
 networkmanager \
-xf86-video-vmware\
+xf86-video-vmware \
 man-db \
 dash \
 vim nnn less
