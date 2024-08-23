@@ -6,7 +6,6 @@ set -x
 BASEDIR=$(dirname $(realpath "$0"))
 
 #----------------------------------
-sh $BASEDIR/scripts/dash.sh
 sh $BASEDIR/scripts/pacman.sh
 sh $BASEDIR/scripts/environment.sh
 sh $BASEDIR/scripts/locale.sh
