@@ -4,13 +4,18 @@
 set -x
 
 
-pacman -S --noconfirm sudo
+pacman -S --noconfirm opendoas zsh
 
-#включение возможности запуска sudo
-sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+#настройка doas
+touch /etc/doas.conf
+sh -c 'echo "permit :wheel" >> /etc/doas.conf'
+sh -c 'echo "" >> /etc/doas.conf'
+chown -c root:root /etc/doas.conf
+chmod -c 0400 /etc/doas.conf
+
 
 #создание пользователя без пароля
-useradd -m user -G wheel -s /bin/dash
+useradd -m user -G wheel -s /bin/zsh
 passwd -d user
 
 #отключение входа root

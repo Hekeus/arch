@@ -42,6 +42,7 @@ cp -r $BASEDIR/setup/scripts /mnt/root/
 
 #----------------------------------
 #минимальная настройка системы, остальное настраивается после перезагрузки
+arch-chroot /mnt sh /root/scripts/ch_dash.sh
 arch-chroot /mnt sh /root/scripts/ch_network.sh
 arch-chroot /mnt sh /root/scripts/ch_users.sh
 #arch-chroot /mnt sh /root/scripts/ch_password.sh
