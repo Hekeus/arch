@@ -23,7 +23,7 @@ sudo sh -c 'echo "set enable-keypad on" >> /etc/inputrc'
 sudo pacman -S --noconfirm dmenu
 
 #установка автовхода через systemd https://wiki.archlinux.org/title/Systemd/User
-sudo pacman -U --noconfirm setup/package/xlogin-git-14-1-any.pkg.tar.zst
+sudo pacman -U --noconfirm setup/packages/xlogin-git-14-1-any.pkg.tar.zst
 systemctl enable xlogin@user
 
 #установка фона рабочего стола

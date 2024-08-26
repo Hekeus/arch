@@ -5,8 +5,8 @@ set -x
 
 
 #установка временной зоны
-sudo timedatectl set-ntp true
-sudo timedatectl set-timezone Asia/Yekaterinburg
+doas timedatectl set-ntp true
+doas timedatectl set-timezone Asia/Yekaterinburg
 
 
 #----------------------------------

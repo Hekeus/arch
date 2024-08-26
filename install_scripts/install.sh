@@ -74,7 +74,7 @@ rm -r /mnt/root/scripts
 #меняем владельца каталога
 arch-chroot /mnt chown -R user:user /home/user/setup
 
-#umount -R /mnt
+umount -R /mnt
 
-#shutdown -r now
+shutdown -r now
 
