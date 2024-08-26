@@ -5,6 +5,9 @@ set -x
 
 
 #----------------------------------
+#установка менеджера сети
+pacman -S --noconfirm networkmanager
+
 #включение службы сети
 systemctl enable NetworkManager
 

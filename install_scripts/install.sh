@@ -2,6 +2,21 @@
 
 set -x
 
+#----------------------------------
+#Область переопределения для разных систем
+
+#Virtual box 32 Gb 1 Gb RAM
+VIDEODRIVER=xf86-video-vmware
+PARTITIONS_SCRIPT=partitions_VB.sh
+NETWORK_SCRIPT=ch_network_VB.sh
+
+#zenbook
+#VIDEODRIVER=
+#PARTITIONS_SCRIPT=
+#NETWORK_SCRIPT=
+
+#----------------------------------
+
 BASEDIR=$(dirname $(realpath "$0"))
 
 #----------------------------------
@@ -10,15 +25,12 @@ sh $BASEDIR/scripts/mirror.sh
 
 #----------------------------------
 #подготовка диска
-sh $BASEDIR/scripts/partitions_VB.sh
-
-VIDEODRIVER=xf86-video-vmware
+sh $BASEDIR/scripts/$PARTITIONS_SCRIPT
 
 #----------------------------------
 #минимальная установка, пакеты для сборок, драйвер видеокарты
 pacstrap -K /mnt base linux linux-firmware \
 base-devel git \
-networkmanager \
 $VIDEODRIVER \
 man-db \
 vim nnn less
@@ -37,9 +49,10 @@ cp -r $BASEDIR/setup/scripts /mnt/root/
 #----------------------------------
 #минимальная настройка системы, остальное настраивается после перезагрузки
 arch-chroot /mnt sh /root/scripts/ch_dash.sh
-arch-chroot /mnt sh /root/scripts/ch_network.sh
+arch-chroot /mnt sh /root/scripts/$NETWORK_SCRIPT
+
+#настройка окружения пользователя - создание пользователя, настройка doas, переменные среды, zsh
 arch-chroot /mnt sh /root/scripts/ch_users.sh
-arch-chroot /mnt sh /root/scripts/ch_env.sh
 
 #удаляем из каталога root, далее все будет выполняться под пользователем user
 rm -r /mnt/root/scripts

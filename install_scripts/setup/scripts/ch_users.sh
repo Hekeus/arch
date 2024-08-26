@@ -21,14 +21,25 @@ passwd -d user
 #отключение входа root
 passwd --lock root
 
-#настройка zsh
 
+#настройка переменных окружения
+touch /etc/profile.d/env.sh
+sh -c 'echo "export EDITOR=vim" >> /etc/profile.d/env.sh'
+sh -c 'echo "export XDG_CACHE_HOME=/home/user/.cache" >> /etc/profile.d/env.sh'
+sh -c 'echo "export XDG_CONFIG_HOME=/home/user/.config" >> /etc/profile.d/env.sh'
+sh -c 'echo "export XDG_DATA_HOME=/home/user/.local/share" >> /etc/profile.d/env.sh'
+sh -c 'echo "export XDG_STATE_HOME=/home/user/.local/state" >> /etc/profile.d/env.sh'
+sh -c 'echo "export ZDOTDIR=/home/user/.config/zsh" >> /etc/profile.d/env.sh'
+sh -c 'echo "export ZSH_CACHE_DIR=/home/user/.cache/zsh" >> /etc/profile.d/env.sh'
+
+
+
+#настройка zsh
 mkdir -p /home/user/.config/zsh
 mkdir -p /home/user/.cache/zsh
-
-touch /home/user/.config/zsh/.zshrc
-echo "bindkey "^[[1~" beginning-of-line # Home" >> /home/user/.config/zsh/.zshrc
-echo "bindkey "^[[4~" end-of-line # End" >> /home/user/.config/zsh/.zshrc
+chown -cR user:user /home/user/.config
+chown -cR user:user /home/user/.cache
+cp /home/user/setup/package/.zshrc /home/user/.config/zsh/.zshrc
 
 #----------------------------------
 exit
