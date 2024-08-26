@@ -46,11 +46,22 @@ sh $BASEDIR/scripts/bootloader.sh
 #копируем скрипты, чтобы можно было выполнять под новым root
 cp -r $BASEDIR/setup/scripts /mnt/root/
 
+#----------------------------------
+#минимальная настройка системы, остальное настраивается после перезагрузки
+arch-chroot /mnt sh /root/scripts/ch_dash.sh
+arch-chroot /mnt sh /root/scripts/$NETWORK_SCRIPT
+
+#настройка окружения пользователя - создание пользователя, настройка doas, переменные среды, zsh
+arch-chroot /mnt sh /root/scripts/ch_users.sh
+
+#удаляем из каталога root, далее все будет выполняться под пользователем user
+rm -r /mnt/root/scripts
+
 #копируем скрипты для дальнейшего использования под пользователем user
 cp -r $BASEDIR/setup /mnt/home/user
 
 #копируем пакеты для установки
-cp -r $BASEDIR/../packages /mnt/home/user/setup
+cp -r $BASEDIR/../package /mnt/home/user/setup
 
 #копируем темы для установки
 cp -r $BASEDIR/../themes /mnt/home/user/setup
@@ -58,15 +69,7 @@ cp -r $BASEDIR/../themes /mnt/home/user/setup
 #меняем владельца каталога
 arch-chroot /mnt chown -R user:user /home/user/setup
 
-#----------------------------------
-#минимальная настройка системы, остальное настраивается после перезагрузки
-#arch-chroot /mnt sh /home/user/setup/scripts/ch_dash.sh
-#arch-chroot /mnt sh /home/user/setup/scripts/$NETWORK_SCRIPT
+umount -R /mnt
 
-#настройка окружения пользователя - создание пользователя, настройка doas, переменные среды, zsh
-#arch-chroot /mnt sh /home/user/setup/scripts/ch_users.sh
-
-#umount -R /mnt
-
-#shutdown -r now
+shutdown -r now
 
