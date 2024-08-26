@@ -6,28 +6,28 @@ set -x
 theme=all_i_need
 
 #установка Xorg
-sudo pacman -S xorg-server xorg-xinit 
+doas pacman -S xorg-server xorg-xinit 
 
 #установка шрифта и библиотек
-sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd libx11 libxft libxinerama
+doas pacman -S --noconfirm ttf-jetbrains-mono-nerd libx11 libxft libxinerama
 
 #установка dwm
-sudo pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
+doas pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
 
 #установка виртуальной консоли st
-sudo pacman -U --noconfirm setup/themes/$theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
+doas pacman -U --noconfirm setup/themes/$theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
 #включение клавиши delete
-sudo sh -c 'echo "set enable-keypad on" >> /etc/inputrc'
+doas sh -c 'echo "set enable-keypad on" >> /etc/inputrc'
 
 #установка меню для запуска приложений
-sudo pacman -S --noconfirm dmenu
+doas pacman -S --noconfirm dmenu
 
 #установка автовхода через systemd https://wiki.archlinux.org/title/Systemd/User
-sudo pacman -U --noconfirm setup/packages/xlogin-git-14-1-any.pkg.tar.zst
+doas pacman -U --noconfirm setup/packages/xlogin-git-14-1-any.pkg.tar.zst
 systemctl enable xlogin@user
 
 #установка фона рабочего стола
-sudo pacman -S --noconfirm feh
+doas pacman -S --noconfirm feh
 cp ~/setup/themes/$theme/wallpaper.png ~/.config
 
 #для пользователя user создать настройку запуска при старте X
