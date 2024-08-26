@@ -21,5 +21,14 @@ passwd -d user
 #отключение входа root
 passwd --lock root
 
+#настройка zsh
+
+mkdir -p /home/user/.config/zsh
+mkdir -p /home/user/.cache/zsh
+
+touch /home/user/.config/zsh/.zshrc
+echo "bindkey "^[[1~" beginning-of-line # Home" >> /home/user/.config/zsh/.zshrc
+echo "bindkey "^[[4~" end-of-line # End" >> /home/user/.config/zsh/.zshrc
+
 #----------------------------------
 exit
