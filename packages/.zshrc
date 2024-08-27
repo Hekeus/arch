@@ -1,4 +1,4 @@
- create a zkbd compatible hash;
+# create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
 
