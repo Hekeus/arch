@@ -6,7 +6,7 @@ set -x
 theme=all_i_need
 
 #установка Xorg
-doas pacman -S xorg-server xorg-xinit 
+doas pacman -S --noconfirm xorg-server xorg-xinit 
 
 #установка шрифта и библиотек
 doas pacman -S --noconfirm ttf-jetbrains-mono-nerd libx11 libxft libxinerama
