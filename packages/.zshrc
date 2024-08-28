@@ -2,17 +2,17 @@
 
 #prompt
 autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
 
 zstyle ':vcs_info:*' enable git
 
 function zle-line-init {
 	print -n "\e]2;$PWD\a"
-    PS1='%F{green}%b%~%#%f $vcs_info_msg_0_'
+    PS1='%F{green}%b%~%#%f'
     zle reset-prompt
 }
 zle -N zle-line-init
-
-preexec() { vcs_info }
 
 #------------------------------------------
 
