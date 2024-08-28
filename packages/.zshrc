@@ -10,7 +10,8 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '%b'
 
 function zle-line-init {
-	print -n "\e]2;$PWD\a"
+	#print -n "\e]2;$PWD\a"
+	print -n "\e]2;$vcs_info_msg_0_\a"
     PS1='%F{green}%b%~%#%f '
     zle reset-prompt
 }
