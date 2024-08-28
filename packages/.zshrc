@@ -65,3 +65,9 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 #------------------------------------------
+
+setopt EXTENDED_GLOB
+setopt GLOB_DOTS
+setopt NO_NOMATCH
+setopt RM_STAR_SILENT
+export LISTMAX=256
