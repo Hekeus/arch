@@ -2,22 +2,11 @@
 
 #prompt
 
-function zle-line-init zle-keymap-select {
-    mode_vi=${${KEYMAP/vicmd/+}/(main|viins)/-}
-    [[ $timer ]] && timer_show=$(( $SECONDS - $timer ))
-    prompt="%2~ "
-    prompt+="%U${timer_show}%u|"
-    prompt+="%B%?%b"
-    prompt+="${mode_vi}"
-    prompt+="%B%F{magenta}%#%f%b "
-    PS1=$prompt
+function zle-line-init {
+    PS1='%F{green}%b%~%#%f '
     zle reset-prompt
 }
 zle -N zle-line-init
-zle -N zle-keymap-select
-
-preexec() { timer=$SECONDS }
-precmd() { printf "\a\033]2;\033\\" }
 
 #------------------------------------------
 
