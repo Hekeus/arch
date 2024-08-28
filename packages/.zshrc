@@ -59,7 +59,9 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
-HISTFILE=~/.cache/zsh/.history
-HISTSIZE=10240
-SAVEHIST=10240
+setopt APPEND_HISTORY 
+setopt SHARE_HISTORY 
+setopt INC_APPEND_HISTORY 
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
 #------------------------------------------
