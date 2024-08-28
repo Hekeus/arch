@@ -1,3 +1,18 @@
+
+#------------------------------------------
+
+#поиск по истории
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+setopt APPEND_HISTORY 
+setopt SHARE_HISTORY 
+setopt INC_APPEND_HISTORY 
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+#------------------------------------------
+
 #------------------------------------------
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -22,8 +37,8 @@ key[ShiftTab]="${terminfo[kcbt]}"
 [[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"    overwrite-mode
 [[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}" backward-delete-char
 [[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"    delete-char
-#[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"        up-line-or-history
-#[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"      down-line-or-history
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"        up-line-or-beginning-search
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"      down-line-or-beginning-search
 [[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"      backward-char
 [[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"     forward-char
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    beginning-of-buffer-or-history
@@ -49,22 +64,6 @@ fi
 #prompt
 PS1='%F{green}%b%~%#%f '
 
-#------------------------------------------
-
-#поиск по истории
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-[[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
-[[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
-
-setopt APPEND_HISTORY 
-setopt SHARE_HISTORY 
-setopt INC_APPEND_HISTORY 
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-#------------------------------------------
 
 setopt EXTENDED_GLOB
 setopt GLOB_DOTS
@@ -77,3 +76,4 @@ export LISTMAX=256
 alias ls='ls -F --color=auto'
 alias grep='grep --colour=auto'
 alias alert='echo $"\a"'
+alias nnn='print -n '\e]2;nnn\a'
