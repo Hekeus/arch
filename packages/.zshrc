@@ -3,6 +3,8 @@
 #prompt
 autoload -Uz vcs_info
 
+zstyle ':vcs_info:*' enable git
+
 function zle-line-init {
 	print -n "\e]2;$PWD\a"
     PS1='%F{green}%b%~%#%f '
