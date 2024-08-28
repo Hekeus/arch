@@ -24,7 +24,7 @@ zle -N zle-line-init
 
 #------------------------------------------
 
-cddotdot() { cd .. }
+cddotdot() { cd .. ; pwd ; zle reset-prompt }
 zle -N cddotdot
 
 #------------------------------------------
