@@ -4,11 +4,11 @@
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats '[%b%f%c%u]'
+zstyle ':vcs_info:git:*' formats '[%F{green}%b%f%c%u]'
 
 function zle-line-init {
 	print -n "\e]2;$PWD\a"
-    PS1='%F{green}%b%~%#%f | $vcs_info_msg_0_\a '
+    PS1='%F{green}%b%~%#%f $vcs_info_msg_0_'
     zle reset-prompt
 }
 zle -N zle-line-init
