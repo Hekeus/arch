@@ -4,7 +4,6 @@
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*'
 
 function zle-line-init {
 	print -n "\e]2;$PWD\a"
