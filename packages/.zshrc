@@ -44,19 +44,7 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 fi
 
 #prompt
-# Загрузка promptinit
-autoload -Uz promptinit && promptinit
-
-# Создание темы
-prompt_mytheme_setup() {
-  PS1="%~%# "
-}
-
-# Добавление темы в promptsys
-prompt_themes+=( mytheme )
-
-# Загрузка темы
-prompt mytheme
+PS1='%F{green}%b%~%#%f '
 
 #поиск по истории
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
