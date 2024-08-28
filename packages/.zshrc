@@ -1,18 +1,23 @@
 #------------------------------------------
 
 #prompt
+function zle-line-init {
+	print -n "\e]2;$PWD\a"
+    PS1='%F{green}%b%~%#%f '
+    zle reset-prompt
+}
+zle -N zle-line-init
+
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 
 zstyle ':vcs_info:*' enable git
-
-function zle-line-init {
-	print -n "\e]2;$PWD\a"
-    PS1='%F{green}%b%~%#%f'
-    zle reset-prompt
-}
-zle -N zle-line-init
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%F{yellow}●%f'
+zstyle ':vcs_info:*' unstagedstr '%F{red}●%f'
+zstyle ':vcs_info:git:*' formats '[%F{green}%b%f%c%u]'
+zstyle ':vcs_info:git:*' actionformats '[%F{cyan}%b (%a)%f%c%u]'
 
 RPROMPT='$vcs_info_msg_0_'
 
