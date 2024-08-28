@@ -24,6 +24,8 @@ zle -N zle-line-init
 
 #------------------------------------------
 
+cddotdot() { cd .. ; pwd ; zle reset-prompt }
+
 #------------------------------------------
 #поиск по истории
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -54,6 +56,7 @@ key[Right]="${terminfo[kcuf1]}"
 key[PageUp]="${terminfo[kpp]}"
 key[PageDown]="${terminfo[knp]}"
 key[ShiftTab]="${terminfo[kcbt]}"
+key[F2]="${terminfo[kf2]}"
 
 # setup key accordingly
 [[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"      beginning-of-line
@@ -68,6 +71,7 @@ key[ShiftTab]="${terminfo[kcbt]}"
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"  end-of-buffer-or-history
 [[ -n "${key[ShiftTab]}"  ]] && bindkey -- "${key[ShiftTab]}"  reverse-menu-complete
+[[ -n "${key[F2]}"  ]] && bindkey -- "${key[F2]}"  			   cddotdot
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
