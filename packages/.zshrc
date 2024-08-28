@@ -76,4 +76,4 @@ export LISTMAX=256
 alias ls='ls -F --color=auto'
 alias grep='grep --colour=auto'
 alias alert='echo $"\a"'
-alias nnn='print -n '\e]2;nnn\a'
+alias nnn='print -n "\e]2;nnn\a"'
