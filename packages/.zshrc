@@ -1,12 +1,12 @@
 #------------------------------------------
 
 #prompt
-function zle-line-init {
-	print -n "\e]2;$PWD\a"
-    PS1='%F{green}%b%~%#%f '
-    zle reset-prompt
-}
-zle -N zle-line-init
+#function zle-line-init {
+#	print -n "\e]2;$PWD\a"
+#    PS1='%F{green}%b%~%#%f '
+#    zle reset-prompt
+#}
+#zle -N zle-line-init
 
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
