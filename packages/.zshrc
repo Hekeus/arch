@@ -1,3 +1,4 @@
+#------------------------------------------
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
@@ -43,8 +44,12 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
+#------------------------------------------
+
 #prompt
 PS1='%F{green}%b%~%#%f '
+
+#------------------------------------------
 
 #поиск по истории
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -53,3 +58,7 @@ zle -N down-line-or-beginning-search
 
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+
+#------------------------------------------
+
+zstyle ":completion:*:functions" ignored-patterns "_*"
