@@ -29,6 +29,7 @@ key[ShiftTab]="${terminfo[kcbt]}"
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"  end-of-buffer-or-history
 [[ -n "${key[ShiftTab]}"  ]] && bindkey -- "${key[ShiftTab]}"  reverse-menu-complete
+[[ -n "${key[^P]}" 		  ]] && bindkey -- "${key[^P]}"  	   up-line-or-search
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
@@ -71,3 +72,8 @@ setopt GLOB_DOTS
 setopt NO_NOMATCH
 setopt RM_STAR_SILENT
 export LISTMAX=256
+
+#------------------------------------------
+
+alias ls='ls -F --color=auto'
+alias grep='grep --colour=auto'
