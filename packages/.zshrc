@@ -9,10 +9,12 @@ zstyle ':vcs_info:*' enable git
 
 function zle-line-init {
 	print -n "\e]2;$PWD\a"
-    PS1='%F{green}%b%~%#%f $vcs_info_msg_0_ '
+    PS1='%F{green}%b%~%#%f'
     zle reset-prompt
 }
 zle -N zle-line-init
+
+RPROMPT='$vcs_info_msg_0_'
 
 #------------------------------------------
 
