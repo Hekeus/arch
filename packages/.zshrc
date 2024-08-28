@@ -45,21 +45,3 @@ fi
 
 
 PS1='%F{green}%b%~:%f '
-
-
-zstyle ":completion:*:functions" ignored-patterns "_*"
-zstyle ":completion:*" matcher-list "" 'm:{a-z\-}={A-Z\_}' 'r:|?=** m:{a-z\-}={A-Z\_}'
-_mycomp () {
-    [[ ${words[1]} != man ]] || { _man && return 0 }
-    [[ $CURRENT -eq 1 ]] && _command_names || _files && return 0
-    # MAGIC_EQUAL_SUBST {{{
-    [[ $PREFIX = *\=* ]] || return 1
-    compstate[parameter]=${PREFIX%%\=*}
-    compset -P 1 "*="
-    _value
-    # }}}
-}
-zstyle ":completion:*" completer _mycomp _parameters
-autoload -U compinit ; compinit -d /tmp/.zcompdump
-zstyle ":completion:*:default" list-colors ""
-autoload -U complist
