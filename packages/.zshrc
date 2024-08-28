@@ -3,6 +3,7 @@
 #prompt
 
 function zle-line-init {
+	print -n "\e]2;$PWD\a"
     PS1='%F{green}%b%~%#%f '
     zle reset-prompt
 }
