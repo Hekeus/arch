@@ -24,9 +24,6 @@ zle -N zle-line-init
 
 #------------------------------------------
 
-cddotdot() { cd .. ; pwd ; zle-line-init }
-zle -N cddotdot
-
 #------------------------------------------
 #поиск по истории
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -57,7 +54,6 @@ key[Right]="${terminfo[kcuf1]}"
 key[PageUp]="${terminfo[kpp]}"
 key[PageDown]="${terminfo[knp]}"
 key[ShiftTab]="${terminfo[kcbt]}"
-key[F2]="${terminfo[kf2]}"
 
 # setup key accordingly
 [[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"      beginning-of-line
