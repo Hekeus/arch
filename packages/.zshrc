@@ -9,8 +9,13 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '%b'
 
 function zle-line-init {
-	print -n "\e]2;$PWD $vcs_info_msg_0_\a"
-    PS1='%F{green}%b%~%#%f '
+	if [$vcs_info_msg_0_ eq ""]; then
+		print -n "\e]2;$PWD\a"
+		PS1='%F{green}%b%~%#%f '
+	else	
+		print -n "\e]2;$PWD *$vcs_info_msg_0_\a"
+		PS1='%F{blue}%b%~%#%f '
+	fi
     zle reset-prompt
 }
 zle -N zle-line-init
