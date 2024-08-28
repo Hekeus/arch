@@ -10,11 +10,11 @@ zstyle ':vcs_info:git:*' formats '%b'
 
 function zle-line-init {
 	if [ -n "$vcs_info_msg_0_"]; then
+		print -n "\e]2;$PWD\a"
+		PS1='%F{green}%b%~%#%f '		
+	else	
 		print -n "\e]2;$PWD *$vcs_info_msg_0_\a"
 		PS1='%F{blue}%b%~%#%f '
-	else	
-		print -n "\e]2;$PWD\a"
-		PS1='%F{green}%b%~%#%f '
 	fi
     zle reset-prompt
 }
