@@ -64,6 +64,23 @@ fi
 #prompt
 PS1='%F{green}%b%~%#%f '
 
+function zle-line-init zle-keymap-select {
+    mode_vi=${${KEYMAP/vicmd/+}/(main|viins)/-}
+    [[ $timer ]] && timer_show=$(( $SECONDS - $timer ))
+    prompt="%2~ "
+    prompt+="%U${timer_show}%u|"
+    prompt+="%B%?%b"
+    prompt+="${mode_vi}"
+    prompt+="%B%F{magenta}%#%f%b "
+    PS1=$prompt
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+preexec() { timer=$SECONDS }
+precmd() { printf "\a\033]2;\033\\" }
+#------------------------------------------
 
 setopt EXTENDED_GLOB
 setopt GLOB_DOTS
