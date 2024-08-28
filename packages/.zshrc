@@ -1,7 +1,6 @@
 #------------------------------------------
 
 #prompt
-PS1='%F{green}%b%~%#%f '
 
 function zle-line-init zle-keymap-select {
     mode_vi=${${KEYMAP/vicmd/+}/(main|viins)/-}
