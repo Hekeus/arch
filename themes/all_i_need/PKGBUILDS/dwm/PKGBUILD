@@ -19,8 +19,6 @@ prepare() {
 package() {
 	cd "$srcdir/$pkgname"
 	make PREFIX=/usr DESTDIR="$pkgdir" install
-	touch /home/user/.xinitrc
-	echo "exec dwm" >> /home/user/.xinitrc
 }
 
 sha256sums=('SKIP')

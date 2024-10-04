@@ -11,6 +11,9 @@ doas pacman -S --noconfirm xorg-server xorg-xinit
 #установка шрифта и библиотек
 doas pacman -S --noconfirm ttf-jetbrains-mono-nerd libx11 libxft libxinerama
 
+#установка статуса dwm
+doas pacman -U --noconfirm setup/themes/$theme/package/status_dwm-0-1-x86_64.pkg.tar.zst
+
 #установка dwm
 doas pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
 
@@ -33,7 +36,7 @@ cp ~/setup/themes/$theme/wallpaper.png ~/.config
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
 echo 'setxkbmap -layout us,ru -option "grp:caps_toggle"' >> /home/user/.xinitrc
-echo 'feh --bg-fill ~/.config/wallpaper.png & exec dwm' >> /home/user/.xinitrc
+echo 'feh --bg-fill ~/.config/wallpaper.png & status 30 & exec dwm' >> /home/user/.xinitrc
 
 #----------------------------------
 exit

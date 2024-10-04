@@ -1,0 +1,14 @@
+pkgname=status_dwm
+pkgver=0
+pkgrel=1
+pkgdesk='own status dwm'
+url=""
+license=('MIT')
+arch=('x86_64')
+
+package() {
+	mkdir -p "$pkgdir/usr/bin"
+	cp "$startdir/status" "$pkgdir/usr/bin"
+}
+
+sha256sums=('SKIP')
