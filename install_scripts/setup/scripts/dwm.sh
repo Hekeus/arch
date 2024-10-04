@@ -36,7 +36,7 @@ cp ~/setup/themes/$theme/wallpaper.png ~/.config
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
 echo 'setxkbmap -layout us,ru -option "grp:caps_toggle"' >> /home/user/.xinitrc
-echo 'feh --bg-fill ~/.config/wallpaper.png & status 30 & exec dwm' >> /home/user/.xinitrc
+echo 'feh --bg-fill ~/.config/wallpaper.png & status & exec dwm' >> /home/user/.xinitrc
 
 #----------------------------------
 exit
