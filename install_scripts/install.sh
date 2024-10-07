@@ -13,7 +13,7 @@ set -x
 #zenbook
 #VIDEODRIVER=
 PARTITIONS_SCRIPT=partitions_zen.sh
-NETWORK_SCRIPT=
+NETWORK_SCRIPT=ch_network_zen.sh
 
 #----------------------------------
 
