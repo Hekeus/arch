@@ -33,7 +33,7 @@ pacstrap -K /mnt base linux linux-firmware \
 base-devel git \
 $VIDEODRIVER \
 man-db \
-vim nnn less
+neovim nnn less
 
 #----------------------------------
 #сохраняем параметры подключения разделов

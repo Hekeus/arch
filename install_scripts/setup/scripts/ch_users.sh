@@ -24,7 +24,8 @@ passwd --lock root
 
 #настройка переменных окружения
 touch /etc/profile.d/env.sh
-sh -c 'echo "export EDITOR=vim" >> /etc/profile.d/env.sh'
+sh -c 'echo "export EDITOR=nvim" >> /etc/profile.d/env.sh'
+sh -c 'echo "export PAGER=less" >> /etc/profile.d/env.sh'
 sh -c 'echo "export XDG_CACHE_HOME=/home/user/.cache" >> /etc/profile.d/env.sh'
 sh -c 'echo "export XDG_CONFIG_HOME=/home/user/.config" >> /etc/profile.d/env.sh'
 sh -c 'echo "export XDG_DATA_HOME=/home/user/.local/share" >> /etc/profile.d/env.sh'
