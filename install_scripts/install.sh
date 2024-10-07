@@ -6,14 +6,14 @@ set -x
 #Область переопределения для разных систем
 
 #Virtual box 32 Gb 1 Gb RAM
-VIDEODRIVER=xf86-video-vmware
-PARTITIONS_SCRIPT=partitions_VB.sh
-NETWORK_SCRIPT=ch_network_VB.sh
+#VIDEODRIVER=xf86-video-vmware
+#PARTITIONS_SCRIPT=partitions_VB.sh
+#NETWORK_SCRIPT=ch_network_VB.sh
 
 #zenbook
 #VIDEODRIVER=
-#PARTITIONS_SCRIPT=
-#NETWORK_SCRIPT=
+PARTITIONS_SCRIPT=partitions_zen.sh
+NETWORK_SCRIPT=
 
 #----------------------------------
 
@@ -31,7 +31,7 @@ sh $BASEDIR/scripts/$PARTITIONS_SCRIPT
 #минимальная установка, пакеты для сборок, драйвер видеокарты
 pacstrap -K /mnt base linux linux-firmware \
 base-devel git \
-$VIDEODRIVER \
+#$VIDEODRIVER \
 man-db \
 neovim nnn less
 

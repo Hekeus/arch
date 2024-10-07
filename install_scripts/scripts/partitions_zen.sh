@@ -11,8 +11,8 @@ echo 'label: gpt' | sfdisk /dev/nvme0n1
 
 #создание разделов
 echo 'size=512M, type=U' | sfdisk -a /dev/nvme0n1
-echo 'size=2G, type=S' | sfdisk -a /dev/nvme0n1
-echo 'size=30208M, type=L' | sfdisk -a /dev/nvme0n1
+echo 'size=16G, type=S' | sfdisk -a /dev/nvme0n1
+echo 'size=400G, type=L' | sfdisk -a /dev/nvme0n1
 
 #форматирование
 echo 'y' | mkfs.vfat /dev/sda1 -n EFI
