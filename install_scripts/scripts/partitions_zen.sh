@@ -15,12 +15,12 @@ echo 'size=16G, type=S' | sfdisk -a /dev/nvme0n1
 echo 'size=400G, type=L' | sfdisk -a /dev/nvme0n1
 
 #форматирование
-echo 'y' | mkfs.vfat /dev/sda1 -n EFI
-echo 'y' | mkswap /dev/sda2 -L swap
-echo 'y' | mkfs.ext4 /dev/sda3 -L arch
+echo 'y' | mkfs.vfat /dev/nvme0n1p1 -n EFI
+echo 'y' | mkswap /dev/nvme0n1p2 -L swap
+echo 'y' | mkfs.ext4 /dev/nvme0n1p3 -L arch
 
 #подключение разделов
-mount /dev/sda3 /mnt
-swapon /dev/sda2
+mount /dev/nvme0n1p3 /mnt
+swapon /dev/nvme0n1p2
 mkdir /mnt/boot
-mount /dev/sda1 /mnt/boot
+mount /dev/nvme0n1p1 /mnt/boot

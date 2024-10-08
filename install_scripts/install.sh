@@ -9,11 +9,13 @@ set -x
 #VIDEODRIVER=xf86-video-vmware
 #PARTITIONS_SCRIPT=partitions_VB.sh
 #NETWORK_SCRIPT=ch_network_VB.sh
+#BOOTLOADER_SCRIPT=bootloader_VB.sh
 
 #zenbook
 #VIDEODRIVER=
 PARTITIONS_SCRIPT=partitions_zen.sh
 NETWORK_SCRIPT=ch_network_zen.sh
+BOOTLOADER_SCRIPT=bootloader_zen.sh
 
 #----------------------------------
 
