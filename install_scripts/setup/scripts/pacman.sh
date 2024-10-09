@@ -27,3 +27,5 @@ doas sh -c 'echo "Depends = zsh" >> /etc/pacman.d/hooks/zsh-rehash.hook'
 doas sh -c 'echo "Depends = procps-ng" >> /etc/pacman.d/hooks/zsh-rehash.hook'
 doas sh -c 'echo "When = PostTransaction" >> /etc/pacman.d/hooks/zsh-rehash.hook'
 doas sh -c 'echo "Exec = /usr/bin/pkill zsh --signal=USR1" >> /etc/pacman.d/hooks/zsh-rehash.hook'
+
+doas pacman -Syy
