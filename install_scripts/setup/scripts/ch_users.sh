@@ -16,6 +16,7 @@ chmod -c 0400 /etc/doas.conf
 
 #создание пользователя без пароля
 useradd -m user -G wheel -s /bin/zsh
+usermod -a -G video,audio user
 passwd -d user
 
 #отключение входа root
