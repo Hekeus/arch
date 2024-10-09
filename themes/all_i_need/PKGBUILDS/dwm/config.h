@@ -64,11 +64,11 @@ static const char *nnn[] = { "st", "-name", "nnn", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,			XK_n,	   spawn,	   {.v = nnn } },
+	{ MODKEY,						XK_n,	   spawn,	   	   {.v = nnn } },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = reboot } },
 	{ MODKEY|ShiftMask,             XK_h,      spawn,          {.v = shutdown } },
 	{ MODKEY,                     	XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                0x60,	   spawn,          {.v = termcmd } },
+	{ MODKEY,	                	0x60,	   spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -78,7 +78,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,	                XK_q,      killclient,     {0} },
+	{ MODKEY,	                	XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
