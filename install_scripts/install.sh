@@ -3,19 +3,24 @@
 set -x
 
 #----------------------------------
-#Область переопределения для разных систем
+#Область переопределения скриптов для разных систем
+def="zen"
+read -p "Name system. Default $def: " NAMESYSTEM
+[[ "$NAMESYSTEM" ]] || NAMESYSTEM=$def
 
-#Virtual box 32 Gb 1 Gb RAM
-#VIDEODRIVER_SCRIPT=videodriver_VB.sh
-#PARTITIONS_SCRIPT=partitions_VB.sh
-#NETWORK_SCRIPT=ch_network_VB.sh
-#BOOTLOADER_SCRIPT=bootloader_VB.sh
-
-#zenbook
-VIDEODRIVER_SCRIPT=videodriver_zen.sh
-PARTITIONS_SCRIPT=partitions_zen.sh
-NETWORK_SCRIPT=ch_network_zen.sh
-BOOTLOADER_SCRIPT=bootloader_zen.sh
+if [ "$NAMESYSTEM" == "zen" ]; then
+	#zenbook
+	VIDEODRIVER_SCRIPT=videodriver_zen.sh
+	PARTITIONS_SCRIPT=partitions_zen.sh
+	NETWORK_SCRIPT=ch_network_zen.sh
+	BOOTLOADER_SCRIPT=bootloader_zen.sh
+elif [ "$NAMESYSTEM" == "VB" ]; then
+	#Virtual box 32 Gb 1 Gb RAM
+	VIDEODRIVER_SCRIPT=videodriver_VB.sh
+	PARTITIONS_SCRIPT=partitions_VB.sh
+	NETWORK_SCRIPT=ch_network_VB.sh
+	BOOTLOADER_SCRIPT=bootloader_VB.sh
+fi
 
 #----------------------------------
 
