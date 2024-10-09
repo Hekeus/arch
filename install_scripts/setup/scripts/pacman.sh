@@ -1,5 +1,4 @@
 #!/bin/sh
-#Virtual box 32GB Hard 1GB RAM
 
 set -x
 
@@ -9,6 +8,11 @@ doas sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 15/' /etc/pacman.conf
 doas sed -i 's/#NoUpgrade   =/NoUpgrade   = usr/bin/sh/' /etc/pacman.conf
 doas sed -i 's/#NoExtract   =/NoExtract   = usr/bin/sh/' /etc/pacman.conf
 
+#включение multilab
+doas sh -c 'echo "[multilib]" >> /etc/pacman.conf'
+doas sh -c 'echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
+
+#перезапуск zsh для подгрузки новых исполняемых файлов 
 doas mkdir -p /etc/pacman.d/hooks
 doas touch /etc/pacman.d/hooks/zsh-rehash.hook
 doas sh -c 'echo "[Trigger]" >> /etc/pacman.d/hooks/zsh-rehash.hook'

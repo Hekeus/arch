@@ -6,13 +6,13 @@ set -x
 #Область переопределения для разных систем
 
 #Virtual box 32 Gb 1 Gb RAM
-#VIDEODRIVER=xf86-video-vmware
+#VIDEODRIVER_SCRIPT=videodriver_VB.sh
 #PARTITIONS_SCRIPT=partitions_VB.sh
 #NETWORK_SCRIPT=ch_network_VB.sh
 #BOOTLOADER_SCRIPT=bootloader_VB.sh
 
 #zenbook
-#VIDEODRIVER=
+VIDEODRIVER_SCRIPT=videodriver_zen.sh
 PARTITIONS_SCRIPT=partitions_zen.sh
 NETWORK_SCRIPT=ch_network_zen.sh
 BOOTLOADER_SCRIPT=bootloader_zen.sh
@@ -30,19 +30,22 @@ sh $BASEDIR/scripts/mirror.sh
 sh $BASEDIR/scripts/$PARTITIONS_SCRIPT
 
 #----------------------------------
-#минимальная установка, пакеты для сборок, драйвер видеокарты
+#минимальная установка, пакеты для сборок
 pacstrap -K /mnt base linux linux-firmware \
 base-devel git \
-#$VIDEODRIVER \
 man-db \
 neovim nnn less
+
+#---------------------------------
+#установка видеодрайвера
+sh $BASEDIR/scripts/$VIDEODRIVER_SCRIPT
 
 #----------------------------------
 #сохраняем параметры подключения разделов
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #настраиваем загрузчик
-sh $BASEDIR/scripts/bootloader.sh
+sh $BASEDIR/scripts/$BOOTLOADER_SCRIPT
 
 #----------------------------------
 #копируем скрипты, чтобы можно было выполнять под новым root
