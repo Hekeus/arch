@@ -80,7 +80,6 @@ arch-chroot /mnt sh /root/scripts/ch_zsh.sh
 #удаляем из каталога root, далее все будет выполняться под пользователем user
 rm -r /mnt/root/scripts
 
-
 #меняем владельца каталога
 arch-chroot /mnt chown -R user:user /home/user/setup
 
