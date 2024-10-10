@@ -9,5 +9,10 @@ pacman -S --noconfirm iwd
 
 #включение службы сети
 systemctl enable iwd
+systemctl enable systemd-resolved
+
+#настройки iwd
+doas sh -c 'echo "[General]" >> /etc/iwd/main.conf'
+doas sh -c 'echo "EnableNetworkConfiguration=true" >> /etc/iwd/main.conf'
 
 exit
