@@ -109,3 +109,7 @@ alias ls='ls -F --color=auto'
 alias grep='grep --colour=auto'
 alias alert='echo $"\a"'
 alias nnn='print -n "\e]2;nnn\a"; nnn'
+
+#------------------------------------------
+#подсветка синтаксиса
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

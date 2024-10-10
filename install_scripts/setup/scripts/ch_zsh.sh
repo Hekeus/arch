@@ -2,6 +2,9 @@
 
 set -x
 
+#настройка подсветки
+pacman -S zsh-syntax-highlighting --noconfirm
+
 #настройка zsh
 touch /etc/zsh/zshenv
 sh -c 'echo "export ZDOTDIR=/home/user/.config/zsh" >> /etc/zsh/zshenv'
