@@ -1,4 +1,0 @@
-post_install() {
-	tic -sx /usr/share/st.info
-	rm /usr/share/st.info
-}

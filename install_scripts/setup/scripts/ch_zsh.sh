@@ -2,6 +2,8 @@
 
 set -x
 
+theme=all_i_need
+
 #настройка подсветки
 pacman -S zsh-syntax-highlighting --noconfirm
 
@@ -15,6 +17,7 @@ sh -c 'echo "export SAVEHIST=10240" >> /etc/zsh/zshenv'
 
 mkdir -p /home/user/.config/zsh
 mkdir -p /home/user/.cache/zsh
-cp /home/user/setup/packages/.zshrc /home/user/.config/zsh/.zshrc
+
+cp /home/user//setup/themes/$theme/package/.zshrc /home/user/.config/zsh/.zshrc
 chown -cR user:user /home/user/.config
 chown -cR user:user /home/user/.cache
