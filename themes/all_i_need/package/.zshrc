@@ -24,30 +24,30 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '%b'
 
 function zle-line-init zle-keymap-select {
+	
 	#git
 	if [ "$vcs_info_msg_0_" ]; then		
-		print -n "\e]2;$PWD *$vcs_info_msg_0_\a"
 		PS1='%F{blue}%b%~%#%f '
 
 	#обычная консоль
 	else	
-		prompt="%F{red}"
-		case "${KEYMAP}" in 
-			vicmd)
-				prompt="%F{yellow}"
-				;;	
-			viins|main)
-				prompt+="%F{white}"
-				;;
-		esac
-		prompt+="%~"
-		prompt+=" "
+		
+		if [ ${KEYMAP} == "main" ]; then
+			prompt="%F{white}"
+		else
+			prompt="%F{yellow}"
+			prompt+="${KEYMAP} "
+		fi
+
+		prompt+="%~ " #выводит текущий путь
+		prompt+="%# " #выводит привелегии пользователя
+		prompt+="%f" #останавливает смену цветов 
 		PS1=$prompt
-#		print -n "\e]2;$PWD\a"
-#		PS1='%F{green}%b%~%#%f '
+		
 	fi
     zle reset-prompt
 }
+
 zle -N zle-line-init
 zle -N zle-keymap-select
 #------------------------------------------
@@ -72,6 +72,8 @@ TRAPUSR1() { rehash }
 
 #------------------------------------------
 #подсветка синтаксиса командной строки
+typeset -A ZSH_HIGLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]="fg=#FFFFFF"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #------------------------------------------
 
@@ -85,9 +87,11 @@ export KEYTIMEOUT=1
 #включение режим vi для всех программ использующих readline
 set editing-mode vi
 
-bindkey "^[[H" beginning-of-line #Home
+bindkey "^[[1~" beginning-of-line #Home
 bindkey "^[[4~" end-of-line #End
-bindkey "^[[P" delete-char #delete
+bindkey "^[[5~" beginning-of-buffer-or-history #page up
+bindkey "^[[6~" end-of-buffer-or-history #page down
+bindkey "^[[3~" delete-char #delete
 bindkey "^?" backward-delete-char #backspace
 bindkey "^[[A" up-line-or-beginning-search #up
 bindkey "^[[B" down-line-or-beginning-search #down
