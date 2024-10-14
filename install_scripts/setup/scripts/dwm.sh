@@ -19,11 +19,16 @@ doas pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.
 
 #установка виртуальной консоли st
 doas pacman -U --noconfirm setup/themes/$theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
+
 #включение клавиши delete
 doas sh -c 'echo "set enable-keypad on" >> /etc/inputrc'
 
 #установка меню для запуска приложений
 doas pacman -S --noconfirm dmenu
+
+#настройка neovim с установкой менеджера плагинов
+doas pacman -U --noconfirm setup/themes/$theme/package/nvim-packer-git-r574.ea0cc3c-1-any.pkg.tar.zst
+tar xzvf setup/themes/$theme/package/nvim.tar.gz -C ~/.config
 
 #установка автовхода через systemd https://wiki.archlinux.org/title/Systemd/User
 doas pacman -U --noconfirm setup/packages/xlogin-git-14-1-any.pkg.tar.zst
