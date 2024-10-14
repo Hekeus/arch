@@ -74,7 +74,7 @@ TRAPUSR1() { rehash }
 #подсветка синтаксиса командной строки
 typeset -A ZSH_HIGLIGHT_STYLES
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#ZSH_HIGHLIGHT_STYLES[path]="fg=255"
+ZSH_HIGHLIGHT_STYLES[path]="fg=255"
 #------------------------------------------
 
 #------------------------------------------
