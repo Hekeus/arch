@@ -38,6 +38,9 @@ systemctl enable xlogin@user
 doas pacman -S --noconfirm feh
 cp ~/setup/themes/$theme/wallpaper.png ~/.config
 
+#surf
+doas pacman -S webkit2gtk gcr
+
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
 echo 'setxkbmap -layout us,ru -option "grp:caps_toggle"' >> /home/user/.xinitrc
