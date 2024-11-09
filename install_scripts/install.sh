@@ -36,7 +36,7 @@ sh $BASEDIR/scripts/$PARTITIONS_SCRIPT
 
 #----------------------------------
 #минимальная установка, пакеты для сборок
-pacstrap -K /mnt base linux linux-firmware \
+pacstrap -K /mnt base linux linux-firmware sof-firmware alsa-firmware\
 base-devel git \
 man-db \
 neovim nnn less
