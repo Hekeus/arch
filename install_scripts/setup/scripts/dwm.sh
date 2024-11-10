@@ -32,7 +32,7 @@ tar xzvf setup/themes/$theme/package/nvim.tar.gz -C ~/.config
 
 #установка автовхода через systemd https://wiki.archlinux.org/title/Systemd/User
 doas pacman -U --noconfirm setup/packages/xlogin-git-14-1-any.pkg.tar.zst
-systemctl enable xlogin@user
+doas systemctl enable xlogin@user
 
 #установка фона рабочего стола
 doas pacman -S --noconfirm feh
