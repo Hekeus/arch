@@ -8,8 +8,8 @@ pacman -S --noconfirm iwd
 #iwctl station wlan0 connect Tenda_CCFD80_5G --passphrase s3QFsHesQs
 
 #включение службы сети
-systemctl enable iwd
-systemctl enable systemd-resolved
+doas systemctl enable iwd
+doas systemctl enable systemd-resolved
 
 #настройки iwd
 doas sh -c 'echo "[General]" >> /etc/iwd/main.conf'
