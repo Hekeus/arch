@@ -70,5 +70,5 @@ static const struct arg args[] = {
 	{ battery_state, "%s ", "BAT0"},
 	{ battery_perc, "%s%% ", "BAT0"},
 	{ run_command, "\uf027 %s ", "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"},
-	{ datetime, "%s", "%I:%M" },
+	{ datetime, "%s", "%H:%M" },
 };

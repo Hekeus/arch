@@ -12,7 +12,7 @@ doas pacman -S --noconfirm xorg-server xorg-xinit
 doas pacman -S --noconfirm ttf-jetbrains-mono-nerd libx11 libxft libxinerama
 
 #установка статуса dwm
-doas pacman -U --noconfirm setup/themes/$theme/package/status_dwm-0-1-x86_64.pkg.tar.zst
+doas pacman -U --noconfirm setup/themes/$theme/package/slstatus-1.0-2-any.pkg.tar.zst
 
 #установка dwm
 doas pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
@@ -39,12 +39,12 @@ doas pacman -S --noconfirm feh
 cp ~/setup/themes/$theme/wallpaper.png ~/.config
 
 #surf
-doas pacman -S webkit2gtk gcr
+#doas pacman -S webkit2gtk gcr
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
 echo 'setxkbmap -layout us,ru -option "grp:caps_toggle"' >> /home/user/.xinitrc
-echo 'feh --bg-fill ~/.config/wallpaper.png & status & exec dwm' >> /home/user/.xinitrc
+echo 'feh --bg-fill ~/.config/wallpaper.png & slstatus & exec dwm' >> /home/user/.xinitrc
 
 #----------------------------------
 exit
