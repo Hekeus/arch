@@ -1,36 +1,36 @@
-# Maintainer: Stefan Husmann <stefan-husmann@t-online.de>
+# Maintainer: Thule <vincenzo.frascino@proton.me>
+# Contributor: Neptune <neptune650@proton.me>
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
+# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
 
-pkgname=scroll-git
-pkgver=0.1.r2.g51ee387
-pkgrel=2
-pkgdesc='A scrollback buffer for a terminals like st'
-arch=('i686' 'x86_64' 'armv7h')
+pkgname=dwm
+pkgver=6.5
+pkgrel=1
+pkgdesc="A dynamic window manager for X"
+url="https://dwm.suckless.org"
+arch=('i686' 'x86_64' 'arm' 'armv7h' 'armv6h' 'aarch64')
 license=('MIT')
-depends=(libxft)
-makedepends=('ncurses' 'libxext' 'git')
-provides=('scroll')
-conflicts=('scroll')
-url=https://git.suckless.org/scroll/file/README.html
-source=(git://git.suckless.org/scroll)
-sha256sums=('SKIP')
+options=(zipman)
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2')
+source=(https://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
+        config.h)
+sha256sums=('21d79ebfa9f2fb93141836c2666cb81f4784c69d64e7f1b2352f9b970ba09729'
+            'SKIP')
 
-pkgver() {
-  cd ${pkgname%-git}
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+prepare() {
+  cd "$srcdir/$pkgname-$pkgver"
+  if [[ -f "$srcdir/config.h" ]]; then
+    cp -fv "$srcdir/config.h" config.h
+  fi
 }
 
 build() {
-  cd ${pkgname%-git}	
-  make $_makeopts X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+  cd "$srcdir/$pkgname-$pkgver"
+  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 FREETYPEINC=/usr/include/freetype2
 }
 
 package() {
-  cd ${pkgname%-git}
-  local installopts='--mode 0644 -D --target-directory'
-  local shrdir="$pkgdir/usr/share"
-  local licdir="$shrdir/licenses/$pkgname"
-  local docdir="$shrdir/doc/$pkgname"
-  make $_makeopts PREFIX=/usr DESTDIR="$pkgdir" install
-  install $installopts "$licdir" LICENSE
-  install $installopts "$docdir" README
+  cd "$srcdir/$pkgname-$pkgver"
+  make PREFIX=/usr DESTDIR="$pkgdir" install
 }

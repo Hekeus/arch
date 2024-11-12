@@ -38,6 +38,9 @@ doas systemctl enable xlogin@user
 doas pacman -S --noconfirm feh
 cp ~/setup/themes/$theme/wallpaper.png ~/.config
 
+#установка регулировки яркости экрана
+doas pacman -S --noconfirm brightnessctl
+
 #surf
 #doas pacman -S webkit2gtk gcr
 
