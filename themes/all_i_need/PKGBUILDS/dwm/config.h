@@ -63,9 +63,15 @@ static const char *shutdown[] = { "shutdown", "now" , NULL };
 static const char *nnn[] = { "st", "-name", "nnn", NULL };
 static const char *brightup[] = { "brightnessctl", "set", "+10%", NULL };
 static const char *brightdown[] = { "brightnessctl", "set", "10%-", NULL };
+static const char *volumeup[] = { "amixer", "set", "Master", "10%+",  NULL};
+static const char *volumedown[] = { "amixer", "set", "Master", "10%-",  NULL};
+static const char *volumemute[] = { "amixer", "set", "Master", "toggle",  NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,														0x1008ff12,	spawn,	   	  	{.v = volumemute } },
+	{ 0,														0x1008ff11,	spawn,	   	  	{.v = volumedown } },
+	{ 0,														0x1008ff13,	spawn,	   	  	{.v = volumeup } },
 	{ 0,														0x1008ff03,	spawn,	   	  	{.v = brightdown } },
 	{ 0,														0x1008ff02,	spawn,	   	  	{.v = brightup } },
 	{ MODKEY|ShiftMask,             XK_r,      	spawn,          {.v = reboot } },
