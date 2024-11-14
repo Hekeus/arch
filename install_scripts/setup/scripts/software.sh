@@ -1,6 +1,6 @@
 #!/bin/sh
 
 set -x
-doas pacman -S --noconfirm telegram-desktop zathura obsidian
+doas pacman -S --noconfirm telegram-desktop zathura obsidian reaper
 
 exit
