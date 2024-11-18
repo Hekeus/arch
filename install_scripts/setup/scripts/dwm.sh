@@ -18,7 +18,12 @@ doas pacman -U --noconfirm setup/themes/$theme/package/slstatus-1.0-2-any.pkg.ta
 doas pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.zst
 
 #установка виртуальной консоли st
-doas pacman -U --noconfirm setup/themes/$theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
+#обрезает изображения иконок nerd, нужно ставить патчи
+#doas pacman -U --noconfirm setup/themes/$theme/package/st-0.9.2-1-x86_64.pkg.tar.zst
+
+#установка виртуальной консоли alacritty
+doas pacman -S --noconfirm alacritty
+tar xzvf setup/themes/$theme/package/alacritty.tar.gz -C ~/.config
 
 #включение клавиши delete
 doas sh -c 'echo "set enable-keypad on" >> /etc/inputrc'

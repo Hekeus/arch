@@ -39,7 +39,7 @@ sh $BASEDIR/scripts/$PARTITIONS_SCRIPT
 pacstrap -K /mnt base linux linux-firmware sof-firmware alsa-firmware\
 base-devel git \
 man-db \
-neovim nnn less
+neovim less
 
 #---------------------------------
 #установка видеодрайвера
