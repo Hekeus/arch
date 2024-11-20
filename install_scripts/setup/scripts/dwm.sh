@@ -25,6 +25,9 @@ doas pacman -U --noconfirm setup/themes/$theme/package/dwm-6.5-1-x86_64.pkg.tar.
 doas pacman -S --noconfirm alacritty
 tar xzvf setup/themes/$theme/package/alacritty.tar.gz -C ~/.config
 
+#установка менеджера буфера обмена
+doas pacman -S --noconfirm xclip
+
 #включение клавиши delete
 doas sh -c 'echo "set enable-keypad on" >> /etc/inputrc'
 
