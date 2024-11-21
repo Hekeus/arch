@@ -69,6 +69,6 @@ static const struct arg args[] = {
 	{ wifi_perc, "\uf1eb  %s%% ", "wlan0"},
 	{ battery_state, "%s ", "BAT0"},
 	{ battery_perc, "%s%% ", "BAT0"},
-	{ run_command, "\uf027 %s ", "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }'"},
+	{ run_command, "\uf027 %s ", "amixer sget Master | grep 'Right:' | awk -F'[][]' '{ if ($4==\"on\") print $2; else print \"M\" }'"},
 	{ datetime, "%s", "%H:%M" },
 };
