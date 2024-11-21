@@ -12,7 +12,7 @@ sh $BASEDIR/scripts/locale.sh
 sh $BASEDIR/scripts/timezone.sh
 sh $BASEDIR/scripts/makepkg.sh
 sh $BASEDIR/scripts/dwm.sh
-#sh $BASEDIR/scripts/sound.sh
+sh $BASEDIR/scripts/sound.sh
 sh $BASEDIR/scripts/yandex_disk.sh
 sh $BASEDIR/scripts/software.sh
 sh $BASEDIR/scripts/clean.sh
