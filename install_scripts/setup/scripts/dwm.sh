@@ -49,6 +49,10 @@ cp ~/setup/themes/$theme/wallpaper.png ~/.config
 #установка регулировки яркости экрана
 doas pacman -S --noconfirm brightnessctl
 
+#установка консольного файлового менеджера
+doas pacman -S --noconfirm nnn
+cp ~/setup/themes/$theme/package/mimeapps.list ~/.config
+
 #surf
 #doas pacman -S webkit2gtk gcr
 
