@@ -54,7 +54,8 @@ doas pacman -S --noconfirm nnn
 cp ~/setup/themes/$theme/package/mimeapps.list ~/.config
 
 #surf
-#doas pacman -S webkit2gtk gcr
+doas pacman -S webkit2gtk gcr
+doas pacman -U --noconfirm setup/packages/surf-2.1-6-x86_64.pkg.tar.zst
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
