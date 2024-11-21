@@ -61,8 +61,5 @@ touch /home/user/.xinitrc
 echo 'setxkbmap -layout us,ru -option "grp:caps_toggle"' >> /home/user/.xinitrc
 echo 'feh --bg-fill ~/.config/wallpaper.png & slstatus & exec dwm' >> /home/user/.xinitrc
 
-#дополнительное ПО
-doas pacman -S --noconfirm mpv
-
 #----------------------------------
 exit
