@@ -55,6 +55,8 @@ cp ~/setup/themes/$theme/package/mimeapps.list ~/.config
 
 #browser
 doas pacman -S --noconfirm qutebrowser
+doas cp ~/setup/themes/$theme/package/open_url_in_instance.sh /usr/local/bin/
+doas chmod +x /user/local/bin/open_url_in_instance.sh
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc

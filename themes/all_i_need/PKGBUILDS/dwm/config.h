@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "\uf303", "2", "3", "4", "5", "6", "󰋅", "󰂺", "\ue217" };
+static const char *tags[] = { "\uf303", "\uf269", "3", "4", "5", "6", "7", "󰋅", "\ue217" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -28,8 +28,8 @@ static const Rule rules[] = {
 	 */
 	/* class         					instance    title       tags mask     isfloating   monitor */
 	{ "TelegramDesktop",        NULL,      NULL,       1 << 8,        False,       -1 },
-	{ "obsidian",        				NULL,      NULL,       1 << 7,        False,       -1 },
-	{ "REAPER",        					NULL,      NULL,       1 << 6,        False,       -1 },
+	{ "REAPER",        					NULL,      NULL,       1 << 7,        False,       -1 },
+	{ "qutebrowser",   					NULL,      NULL,       1 << 1,        False,       -1 },
 };
 
 /* layout(s) */
@@ -60,6 +60,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *qutebrowser[]  = { "open_url_in_instance.sh", NULL };
 static const char *reboot[] = { "shutdown", "-r" , "now" , NULL };
 static const char *shutdown[] = { "shutdown", "now" , NULL };
 static const char *nnn[] = { "st", "-name", "nnn", NULL };
@@ -79,7 +80,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      	spawn,          {.v = reboot } },
 	{ MODKEY|ShiftMask,             XK_h,      	spawn,          {.v = shutdown } },
 	{ MODKEY,                     	XK_p,      	spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                			0x60,	   		spawn,          {.v = termcmd } },
+	{ MODKEY,	                			XK_Return,	spawn,          {.v = termcmd } },
+	{ MODKEY,	                			XK_u,	   		spawn,          {.v = qutebrowser } },
 	{ MODKEY,                       XK_b,      	togglebar,      {0} },
 	{ MODKEY,                       XK_j,      	focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      	focusstack,     {.i = -1 } },
