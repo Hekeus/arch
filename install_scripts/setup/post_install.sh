@@ -1,5 +1,4 @@
 #!/bin/sh
-#Virtual box 32GB Hard 1GB RAM
 
 set -x
 
@@ -16,6 +15,7 @@ sh $BASEDIR/scripts/sound.sh
 sh $BASEDIR/scripts/yandex_disk.sh
 sh $BASEDIR/scripts/software.sh
 sh $BASEDIR/scripts/t.sh
+sh $BASEDIR/scripts/network.sh
 sh $BASEDIR/scripts/clean.sh
 
 shutdown -r now
