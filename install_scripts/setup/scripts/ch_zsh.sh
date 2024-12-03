@@ -5,7 +5,7 @@ set -x
 theme=all_i_need
 
 #настройка подсветки
-pacman -S tmux zsh-syntax-highlighting --noconfirm
+pacman -S zsh-syntax-highlighting --noconfirm
 
 #настройка zsh
 touch /etc/zsh/zshenv
@@ -17,10 +17,11 @@ sh -c 'echo "export SAVEHIST=10240" >> /etc/zsh/zshenv'
 
 mkdir -p /home/user/.config/zsh
 mkdir -p /home/user/.cache/zsh
-mkdir -p /home/user/.config/tmux
 
-cp /home/user//setup/themes/$theme/package/.zshrc /home/user/.config/zsh/.zshrc
-cp /home/user//setup/themes/$theme/package/tmux.conf /home/user/.config/tmux/tmux.conf
+cp /home/user/setup/themes/$theme/package/.zshrc /home/user/.config/zsh/.zshrc
+cp /home/user/setup/themes/$theme/package/catppuccin_frappe-zsh-syntax-highlighting.zsh /home/user/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh 
+cp /home/user/setup/themes/$theme/package/startup.sh /home/user/.local/share/startup.sh
+chmod +x /home/user/.local/share/startup.sh
 
 chown -cR user:user /home/user/.config
 chown -cR user:user /home/user/.cache
