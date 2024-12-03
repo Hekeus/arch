@@ -5,7 +5,7 @@ set -x
 theme=all_i_need
 
 #установка Xorg
-doas pacman -S --noconfirm xorg-server xorg-xinit 
+doas pacman -S --noconfirm xorg-server xorg-xinit xorg-xinput
 
 #установка шрифта и библиотек
 doas pacman -S --noconfirm ttf-jetbrains-mono-nerd libx11 libxft libxinerama
@@ -55,7 +55,12 @@ cp ~/setup/themes/$theme/package/mimeapps.list ~/.config
 #browser
 doas pacman -S --noconfirm qutebrowser
 doas cp ~/setup/themes/$theme/package/open_url_in_instance.sh /usr/local/bin/
-doas chmod +x /user/local/bin/open_url_in_instance.sh
+doas chmod +x /usr/local/bin/open_url_in_instance.sh
+
+#touchpad
+doas cp ~/setup/themes/$theme/package/touchpad_toggle.sh /usr/local/bin/
+doas chmod +x /usr/local/bin/touchpad_toggle.sh
+
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc

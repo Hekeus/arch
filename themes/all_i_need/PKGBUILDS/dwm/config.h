@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "\uf303", "\uf269", "3", "4", "5", "6", "7", "󰋅", "\ue217" };
+static const char *tags[] = { "\uf303", "2", "3", "4", "5", "6", "7", "\uf269", "\ue217" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,8 +29,7 @@ static const Rule rules[] = {
 	 */
 	/* class         					instance    title       tags mask     isfloating   monitor */
 	{ "TelegramDesktop",        NULL,      NULL,       1 << 8,        False,       -1 },
-	{ "REAPER",        					NULL,      NULL,       1 << 7,        False,       -1 },
-	{ "qutebrowser",   					NULL,      NULL,       1 << 1,        False,       -1 },
+	{ "qutebrowser",   					NULL,      NULL,       1 << 7,        False,       -1 },
 };
 
 /* layout(s) */
@@ -70,6 +69,7 @@ static const char *brightdown[] = { "brightnessctl", "set", "10%-", NULL };
 static const char *volumeup[] = { "amixer", "set", "Master", "10%+",  NULL};
 static const char *volumedown[] = { "amixer", "set", "Master", "10%-",  NULL};
 static const char *volumemute[] = { "amixer", "set", "Master", "toggle",  NULL};
+static const char *touchpad_toggle[] = { "touchpad_toggle.sh", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -78,6 +78,7 @@ static const Key keys[] = {
 	{ 0,														0x1008ff13,	spawn,	   	  	{.v = volumeup } },
 	{ 0,														0x1008ff03,	spawn,	   	  	{.v = brightdown } },
 	{ 0,														0x1008ff02,	spawn,	   	  	{.v = brightup } },
+	{ 0,														0x1008ffa9,	spawn,	   	  	{.v = touchpad_toggle } },
 	{ MODKEY|ShiftMask,             XK_r,      	spawn,          {.v = reboot } },
 	{ MODKEY|ShiftMask,             XK_h,      	spawn,          {.v = shutdown } },
 	{ MODKEY,                     	XK_p,      	spawn,          {.v = dmenucmd } },
