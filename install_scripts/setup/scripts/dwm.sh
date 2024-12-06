@@ -57,6 +57,10 @@ doas pacman -S --noconfirm qutebrowser
 doas cp ~/setup/themes/$theme/package/open_url_in_instance.sh /usr/local/bin/
 doas chmod +x /usr/local/bin/open_url_in_instance.sh
 
+doas cp ~/setup/themes/$theme/package/backup_script.sh /usr/local/bin/backup_script.sh
+doas chmod +x /usr/local/bin/backup_script.sh
+cp ~/setup/themes/$theme/package/backup.filter ~/.config/backup.filter 
+
 #touchpad
 doas cp ~/setup/themes/$theme/package/touchpad_toggle.sh /usr/local/bin/
 doas chmod +x /usr/local/bin/touchpad_toggle.sh
