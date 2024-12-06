@@ -69,4 +69,4 @@ precmd() {
 #------------------------------------------
 # стартовое сообщение
 
-~/.local/share/startup.sh
+/usr/local/bin/startup.sh

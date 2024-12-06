@@ -20,8 +20,8 @@ mkdir -p /home/user/.cache/zsh
 
 cp /home/user/setup/themes/$theme/package/.zshrc /home/user/.config/zsh/.zshrc
 cp /home/user/setup/themes/$theme/package/catppuccin_frappe-zsh-syntax-highlighting.zsh /home/user/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh 
-cp /home/user/setup/themes/$theme/package/startup.sh /home/user/.local/share/startup.sh
-chmod +x /home/user/.local/share/startup.sh
+cp /home/user/setup/themes/$theme/package/startup.sh /usr/local/bin/startup.sh
+chmod +x /usr/local/bin/startup.sh
 
 chown -cR user:user /home/user/.config
 chown -cR user:user /home/user/.cache
