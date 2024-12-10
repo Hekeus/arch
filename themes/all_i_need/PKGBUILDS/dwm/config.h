@@ -70,6 +70,7 @@ static const char *volumeup[] = { "amixer", "set", "Master", "10%+",  NULL};
 static const char *volumedown[] = { "amixer", "set", "Master", "10%-",  NULL};
 static const char *volumemute[] = { "amixer", "set", "Master", "toggle",  NULL};
 static const char *touchpad_toggle[] = { "touchpad_toggle.sh", NULL};
+static const char *vpn_toggle[] = { "vpn_toggle.sh", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -84,6 +85,7 @@ static const Key keys[] = {
 	{ MODKEY,                     	XK_p,      	spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                			XK_Return,	spawn,          {.v = termcmd } },
 	{ MODKEY,	                			XK_u,	   		spawn,          {.v = qutebrowser } },
+	{ MODKEY,	                			XK_v,	   		spawn,          {.v = vpn_toggle } },
 	{ MODKEY,                       XK_b,      	togglebar,      {0} },
 	{ MODKEY,                       XK_j,      	focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      	focusstack,     {.i = -1 } },

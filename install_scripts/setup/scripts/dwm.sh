@@ -65,6 +65,10 @@ cp ~/setup/themes/$theme/package/backup.filter ~/.config/backup.filter
 doas cp ~/setup/themes/$theme/package/touchpad_toggle.sh /usr/local/bin/
 doas chmod +x /usr/local/bin/touchpad_toggle.sh
 
+doas cp ~/setup/themes/$theme/package/vpn_toggle.sh /usr/local/bin/
+doas cp ~/setup/themes/$theme/package/vpn_status.sh /usr/local/bin/
+doas chmod +x /usr/local/bin/vpn_toggle.sh
+doas chmod +x /usr/local/bin/vpn_status.sh
 
 #для пользователя user создать настройку запуска при старте X
 touch /home/user/.xinitrc
