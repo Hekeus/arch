@@ -1,0 +1,8 @@
+XDG_DESKTOP_DIR="$HOME/etc/xdg_desktop"
+XDG_DOCUMENTS_DIR="$HOME/etc/xdg_doc"
+XDG_DOWNLOAD_DIR="$HOME/upload"
+XDG_MUSIC_DIR="$HOME/etc/xdg_music"
+XDG_PICTURES_DIR="$HOME/etc/xdg_pictures"
+XDG_PUBLICSHARE_DIR="$HOME/etc/xdg_public"
+XDG_TEMPLATES_DIR="$HOME/etc/xdg_templates"
+XDG_VIDEOS_DIR="$HOME/etc/xdg_video"
