@@ -12,17 +12,26 @@ XDG
 alacritty
 - `~/.config/alacritty`
 
+git
+- `~/.config/git`
+
 neovim
 - `~/.config/nvim`
 
 pacman
 - `~/.config/pacman`
+- `/etc/pacman.conf`
+- `/etc/pacman.d/hooks`
 
 qutebrowser
 - `~/.config/zsh`
 
 nnn
 - `~/.config/nnn`
+
+zsh
+- `~/.config/zsh`
+- `/etc/zsh`
 
 бэкапирование
 - `~/.config/backup.filter`

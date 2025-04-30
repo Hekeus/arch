@@ -1,0 +1,5 @@
+export ZDOTDIR=/home/user/.config/zsh
+export ZSH_CACHE_DIR=/home/user/.cache/zsh
+export HISTFILE=/home/user/.cache/zsh/.history
+export HISTSIZE=10240
+export SAVEHIST=10240
