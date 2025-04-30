@@ -49,7 +49,7 @@ bindkey "^[[F" end-of-line #End
 bindkey "^[[5~" beginning-of-buffer-or-history #page up
 bindkey "^[[6~" end-of-buffer-or-history #page down
 bindkey "^[[3~" delete-char #delete
-bindkey "14" backward-delete-char #backspace
+bindkey "^?" backward-delete-char #backspace
 bindkey "^[[A" up-line-or-beginning-search #up
 bindkey "^[[B" down-line-or-beginning-search #down
 #------------------------------------------

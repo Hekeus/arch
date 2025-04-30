@@ -1,3 +1,4 @@
+export XAUTHORITY=/home/user/.config/xauth/.Xauthority
 export ZDOTDIR=/home/user/.config/zsh
 export ZSH_CACHE_DIR=/home/user/.cache/zsh
 export HISTFILE=/home/user/.cache/zsh/.history

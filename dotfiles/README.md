@@ -4,6 +4,8 @@
 
 X system
 - `~/.xinitrc`
+- `~/etc/X11/xorg.conf.d`
+
 
 XDG
 - `~/.config/mimeapps.list`
