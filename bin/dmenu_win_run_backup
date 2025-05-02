@@ -1,0 +1,15 @@
+#!/bin/sh
+set -o errexit
+
+HISTORY="$HOME/.config/dmenu.list"
+INPUT=$(dmenu $@ < "$HISTORY")
+
+# aliases
+case "$INPUT" in
+    telegram)
+        CMD="telegram-desktop" ;;
+    *)
+        CMD="$INPUT" ;;
+esac
+
+exec $CMD
