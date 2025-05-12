@@ -67,6 +67,7 @@ precmd() {
 # автозагрузка функций
 fpath=(~/.config/zsh/func $fpath)
 autoload -Uz unpack
+autoload -Uz pack
 
 #------------------------------------------
 # стартовое сообщение

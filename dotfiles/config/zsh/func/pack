@@ -1,0 +1,20 @@
+pack () {
+  if [ $1 ]; then
+    case $1 in
+      tar.bz2)     tar -cjvf $2.tar.bz2 $2                 ;;
+      tar.gz)      tar -czvf $2.tar.bz2 $2                 ;;
+      tar.xz)      tar -cf - $2 | xz -9 -c - > $2.tar.xz   ;;
+      bz2)         bzip $2                                 ;;
+      gz)          gzip -c -9 -n $2 > $2.gz                ;;
+      tar)         tar cpvf $2.tar  $2                     ;;
+      tbz)         tar cjvf $2.tar.bz2 $2                  ;;
+      tgz)         tar czvf $2.tar.gz  $2                  ;;
+      zip)         zip -r $2.zip $2                        ;;
+      7z)          7z a $2.7z $2                           ;;
+      *help)       echo "Usage: pack TYPE FILES"           ;;
+      *)           echo "'$1' cannot be packed via pack()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}

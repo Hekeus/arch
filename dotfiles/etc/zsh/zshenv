@@ -1,5 +1,4 @@
 export XAUTHORITY=/home/user/.config/xauth/.Xauthority
-export PATH="$PATH:/home/user/git/arch/bin"
 export ZDOTDIR=/home/user/.config/zsh
 export ZSH_CACHE_DIR=/home/user/.cache/zsh
 export HISTFILE=/home/user/.cache/zsh/.history

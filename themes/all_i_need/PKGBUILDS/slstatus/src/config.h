@@ -1,0 +1,1 @@
+/home/user/git/arch/themes/all_i_need/PKGBUILDS/slstatus/config.h
