@@ -68,6 +68,7 @@ precmd() {
 fpath=(~/.config/zsh/func $fpath)
 autoload -Uz unpack
 autoload -Uz pack
+autoload -Uz cue_to_mp3 
 
 #------------------------------------------
 # стартовое сообщение

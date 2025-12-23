@@ -1,0 +1,11 @@
+cue_to_mp3() {
+
+	local cue_file="$1"
+
+	if [[ -z "$cue_file" ]] then
+
+		echo "cue_to_mp3 <cue_file>" >&2
+		return 1
+	fi
+
+}

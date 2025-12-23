@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "\uf303", "2", "3", "4", "5", "6", "7", "\uf269", "\ue217" };
+static const char *tags[] = { "\uf303", "2", "3", "4", "5", "\uef08", "\uee41", "\uf269", "\ue217" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -30,6 +30,9 @@ static const Rule rules[] = {
 	/* class         					instance    title       tags mask     isfloating   monitor */
 	{ "TelegramDesktop",        NULL,      NULL,       1 << 8,        False,       -1 },
 	{ "qutebrowser",   					NULL,      NULL,       1 << 7,        False,       -1 },
+	{ "firefox",		   					NULL,      NULL,       1 << 7,        False,       -1 },
+	{ "Surf",   								NULL,      NULL,       1 << 6,        False,       -1 },
+	{ "obsidian",								NULL,      NULL,       1 << 5,        False,       -1 },
 };
 
 /* layout(s) */
@@ -46,10 +49,10 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ Mod1Mask,                     KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
@@ -59,10 +62,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmdwin[] = { "dmenu_win_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *qutebrowser[]  = { "open_url_in_instance.sh", NULL };
-static const char *reboot[] = { "shutdown", "-r" , "now" , NULL };
-static const char *shutdown[] = { "shutdown", "now" , NULL };
+static const char *reboot[] = { "doas", "shutdown", "-r" , "now" , NULL };
+static const char *shutdown[] = { "doas", "shutdown", "now" , NULL };
 static const char *nnn[] = { "st", "-name", "nnn", NULL };
 static const char *brightup[] = { "brightnessctl", "set", "+10%", NULL };
 static const char *brightdown[] = { "brightnessctl", "set", "10%-", NULL };
@@ -71,21 +75,24 @@ static const char *volumedown[] = { "amixer", "set", "Master", "10%-",  NULL};
 static const char *volumemute[] = { "amixer", "set", "Master", "toggle",  NULL};
 static const char *touchpad_toggle[] = { "touchpad_toggle.sh", NULL};
 static const char *vpn_toggle[] = { "vpn_toggle.sh", NULL};
+static const char *repair[] = { "repair", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,														0x1008ff12,	spawn,	   	  	{.v = volumemute } },
-	{ 0,														0x1008ff11,	spawn,	   	  	{.v = volumedown } },
-	{ 0,														0x1008ff13,	spawn,	   	  	{.v = volumeup } },
-	{ 0,														0x1008ff03,	spawn,	   	  	{.v = brightdown } },
-	{ 0,														0x1008ff02,	spawn,	   	  	{.v = brightup } },
-	{ 0,														0x1008ffa9,	spawn,	   	  	{.v = touchpad_toggle } },
+	{ 0, 0x1008ff12, spawn, {.v = volumemute } },
+	{ 0, 0x1008ff11, spawn, {.v = volumedown } },
+	{ 0, 0x1008ff13, spawn,	{.v = volumeup } },
+	{ 0, 0x1008ff03, spawn, {.v = brightdown } },
+	{ 0, 0x1008ff02, spawn,	{.v = brightup } },
+	{ 0, 0x1008ffa9, spawn,	{.v = touchpad_toggle } },
 	{ MODKEY|ShiftMask,             XK_r,      	spawn,          {.v = reboot } },
 	{ MODKEY|ShiftMask,             XK_h,      	spawn,          {.v = shutdown } },
+	{ MODKEY|ShiftMask,             XK_d, 		 	tagmon,         {.v = repair } },
 	{ MODKEY,                     	XK_p,      	spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                			XK_Return,	spawn,          {.v = termcmd } },
-	{ MODKEY,	                			XK_u,	   		spawn,          {.v = qutebrowser } },
-	{ MODKEY,	                			XK_v,	   		spawn,          {.v = vpn_toggle } },
+	{ 0, 			               				XK_Super_L,	spawn,          {.v = dmenucmdwin } },
+	{ MODKEY,	       								XK_Return,	spawn,          {.v = termcmd } },
+	{ MODKEY,	       								XK_u,	  		spawn,          {.v = qutebrowser } },
+	{ MODKEY,	       								XK_v,	  		spawn,          {.v = vpn_toggle } },
 	{ MODKEY,                       XK_b,      	togglebar,      {0} },
 	{ MODKEY,                       XK_j,      	focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      	focusstack,     {.i = -1 } },
@@ -95,7 +102,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      	setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, 	zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    	view,           {0} },
-	{ MODKEY,	                			XK_q,      	killclient,     {0} },
+	{ MODKEY,	     									XK_q,      	killclient,     {0} },
 	{ MODKEY,                       XK_t,      	setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      	setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      	setlayout,      {.v = &layouts[2]} },
