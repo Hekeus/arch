@@ -1,11 +1,81 @@
 cue_to_mp3() {
 
-	local cue_file="$1"
+		validate_arguments $1 $2
+   	check_flac
+		convert_to_mp3 $1 $2
 
-	if [[ -z "$cue_file" ]] then
 
-		echo "cue_to_mp3 <cue_file>" >&2
-		return 1
-	fi
+    return 0
+}
+
+convert_to_mp3() {
+	
+		local file="$1"
+		local cue_path="${file:A}"
+		local out_dir="$2"
+		
+    local cue_dir="${cue_path:h}"
+    local cue_name="${cue_path:t:r}"
+    local flac="${cue_dir}/${cue_name}.flac"
+    
+		shnsplit -f "$cue_path" -t "%n - %t" -o "cust ext=mp3 lame -b 320 --quiet - %f"  -d "$out_dir" "$flac"
+		return 0
+}
+
+validate_arguments() {
+
+		local file="$1"
+		local abs_path="${file:A}"
+
+		if [[ $# -lt  1 ]] ; then
+				echo "Укажите файл CUE"
+				print_help
+				return 1
+		fi
+
+		# Проверяем что файл существует и это обычный файл
+    if [[ ! -f "$abs_path" ]]; then
+        echo "Ошибка: Файл не существует: $abs_path" >&2
+				print_help
+        return 1
+    fi
+
+		# Проверка расширения .cue (регистронезависимо)
+    if [[ ! "${abs_path:l}" =~ '\.cue$' ]]; then
+        echo "Ошибка: Файл должен иметь расширение .cue" >&2
+				print_help
+        return 1
+    fi
+
+    return 0
+
+}
+
+check_flac() {
+
+		 # Получаем абсолютные пути
+    local cue_path="${cue_file:A}"
+    local cue_dir="${cue_path:h}"
+    local cue_name="${cue_path:t:r}"
+    
+    # Ищем соответствующий FLAC файл
+    local found_flac=""
+
+		for ext in flac FLAC; do
+        local flac_candidate="${cue_dir}/${cue_name}.${ext}"
+        if [[ -f "$flac_candidate" ]]; then
+            found_flac="$flac_candidate"
+            break
+        fi
+    done
+
+}
+
+print_help() {
+	echo "--------------"
+	echo "Использование:" 
+	echo "Сохранение в текущую директорию: cue_to_mp3 cue_file"
+	echo "Сохранение в указанную директорию: cue_to_mp3 cue_file output_dir"
+	echo "Требуется shntool"
 
 }
