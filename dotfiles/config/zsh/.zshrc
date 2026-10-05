@@ -8,6 +8,9 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 #------------------------------------------
 
+#Глобальные переменные
+export WINEPREFIX=~/etc/wine
+
 #------------------------------------------
 # общие настройки
 setopt EXTENDED_GLOB
